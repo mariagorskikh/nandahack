@@ -30,9 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-white`}>
-        <a href="#main-content" className="skip-nav">
-          Skip to main content
-        </a>
         {children}
       </body>
     </html>
