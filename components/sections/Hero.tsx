@@ -29,7 +29,7 @@ export default function Hero() {
           Build a system, tool, or layer that fixes a real bottleneck in how AI agents are deployed, coordinated, or scaled.
         </p>
 
-        <p className="mb-8 text-sm font-mono text-white/45">March 27 &ndash; May 7, 2026</p>
+        <p className="mb-8 text-sm font-mono text-white/45">May 21 &ndash; August 21, 2026</p>
 
         <div className="mb-10">
           <CountdownTimer
@@ -42,7 +42,7 @@ export default function Hero() {
           {[
             { value: "5", label: "Arenas" },
             { value: "2", label: "Tracks" },
-            { value: "Apr 11", label: "Buildathon" },
+            { value: "May 21", label: "Buildathon" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl font-semibold text-amber-400 sm:text-3xl">

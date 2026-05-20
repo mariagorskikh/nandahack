@@ -128,11 +128,15 @@ body {
 }
 
 .hero-sponsors-inline {
-  margin: 6px 0 0;
-  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  margin: 14px 0 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
   letter-spacing: 0.06em;
-  font-weight: 700;
-  color: #5f6980;
+  font-weight: 800;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #2f5de1, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-inner {

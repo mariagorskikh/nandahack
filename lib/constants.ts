@@ -245,9 +245,9 @@ export const TIMELINE = [
   {
     phase: "Announcement",
     title: "Launch",
-    dates: "Mar 27, 2026",
-    startDate: "2026-03-27",
-    endDate: "2026-03-27",
+    dates: "May 21, 2026",
+    startDate: "2026-05-21",
+    endDate: "2026-05-21",
     items: [
       "Applications open",
       "Teams form",
@@ -255,35 +255,35 @@ export const TIMELINE = [
     ],
   },
   {
-    phase: "Buildathon",
-    title: "MIT Buildathon",
-    dates: "Apr 11, 2026",
-    startDate: "2026-04-11",
-    endDate: "2026-04-11",
+    phase: "Phase 1",
+    title: "Infrastructure Agents",
+    dates: "May 21 – July 24, 2026",
+    startDate: "2026-05-21",
+    endDate: "2026-07-24",
     items: [
-      "In-person kickoff",
-      "Team work sessions",
-      "Mentor support",
+      "Build agent infrastructure",
+      "Mentor feedback and iteration",
+      "Submit prototypes",
     ],
   },
   {
-    phase: "Build Phase",
-    title: "Build Window",
-    dates: "Apr 11 – May 7, 2026",
-    startDate: "2026-04-11",
-    endDate: "2026-05-07",
+    phase: "Phase 2",
+    title: "The Arena",
+    dates: "July 24 – August 21, 2026",
+    startDate: "2026-07-24",
+    endDate: "2026-08-21",
     items: [
-      "Keep building after the event",
-      "Polish the product",
-      "Submit code, demo, and slides",
+      "Head-to-head arena challenges",
+      "Live agent competitions",
+      "Top teams advance to finals",
     ],
   },
   {
-    phase: "Awards",
-    title: "Awards",
-    dates: "May 7, 2026",
-    startDate: "2026-05-07",
-    endDate: "2026-05-07",
+    phase: "Hackathon and Awards at MIT Media Lab",
+    title: "Final Event",
+    dates: "August 21, 2026",
+    startDate: "2026-08-21",
+    endDate: "2026-08-21",
     items: [
       "Live demos",
       "Judging and review",
@@ -364,6 +364,6 @@ export const FAQS = [
   },
 ];
 
-export const ANNOUNCEMENT_DATE = new Date("2026-03-27T00:00:00-04:00");
-export const BUILDATHON_DATE = new Date("2026-04-11T09:00:00-04:00");
-export const AWARDS_DATE = new Date("2026-05-07T18:00:00-04:00");
+export const ANNOUNCEMENT_DATE = new Date("2026-05-21T00:00:00-04:00");
+export const BUILDATHON_DATE = new Date("2026-05-21T09:00:00-04:00");
+export const AWARDS_DATE = new Date("2026-08-21T18:00:00-04:00");
