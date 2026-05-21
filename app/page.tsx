@@ -194,7 +194,7 @@ export default function Home() {
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">MAY 21 - JULY 24, 2026</p>
+            <p className="date-pill">PHASE 1: MAY 21 - JUL 24 · PHASE 2: JUL 24 - AUG 21, 2026</p>
             <h1>
               NandaHack:
               <br />
