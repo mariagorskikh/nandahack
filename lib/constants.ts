@@ -257,9 +257,9 @@ export const TIMELINE = [
   {
     phase: "Phase 1",
     title: "Infrastructure Agents",
-    dates: "May 21 – July 24, 2026",
-    startDate: "2026-05-21",
-    endDate: "2026-07-24",
+    dates: "May 22 – June 11, 2026",
+    startDate: "2026-05-22",
+    endDate: "2026-06-11",
     items: [
       "Build agent infrastructure",
       "Mentor feedback and iteration",
@@ -269,9 +269,9 @@ export const TIMELINE = [
   {
     phase: "Phase 2",
     title: "The Arena",
-    dates: "July 24 – August 21, 2026",
-    startDate: "2026-07-24",
-    endDate: "2026-08-21",
+    dates: "June 12 – July 11, 2026",
+    startDate: "2026-06-12",
+    endDate: "2026-07-11",
     items: [
       "Head-to-head arena challenges",
       "Live agent competitions",

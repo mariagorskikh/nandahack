@@ -3,7 +3,7 @@ import Image from "next/image";
 const phaseRows = [
   {
     label: "PHASE 1",
-    dates: "May 21 - July 24, 2026",
+    dates: "May 22 - June 11, 2026",
     title: "Infrastructure Agents",
     description:
       "Build agent infrastructure that solves real enterprise problems. On demo day, a judge hands a stock OpenClaw agent your instructions — if it can use what you built, you pass.",
@@ -43,7 +43,7 @@ const phaseRows = [
   },
   {
     label: "PHASE 2",
-    dates: "July 24 - August 21, 2026",
+    dates: "June 12 - July 11, 2026",
     title: "The Arena",
     description:
       "Top teams from Phase 1 enter head-to-head arena challenges. Agents compete live across six arenas — deploy, coordinate, trade, adapt, defend, and integrate — all under pressure.",
@@ -91,8 +91,8 @@ const phaseRows = [
 
 const timeline = [
   { phase: "Announcement", date: "May 21" },
-  { phase: "Phase 1", date: "May 21 - July 24" },
-  { phase: "Phase 2", date: "July 24 - August 21" },
+  { phase: "Phase 1", date: "May 22 - June 11" },
+  { phase: "Phase 2", date: "June 12 - July 11" },
   { phase: "Hackathon and Awards at MIT Media Lab", date: "August 21, 2026" },
 ];
 
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">PHASE 1: MAY 21 - JUL 24 · PHASE 2: JUL 24 - AUG 21, 2026</p>
+            <p className="date-pill">PHASE 1: MAY 22 - JUN 11 · PHASE 2: JUN 12 - JUL 11, 2026</p>
             <h1>
               NandaHack:
               <br />
