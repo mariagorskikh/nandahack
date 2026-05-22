@@ -243,18 +243,6 @@ export const PIPELINE_IMPACT_TRACKS = [
 
 export const TIMELINE = [
   {
-    phase: "Announcement",
-    title: "Launch",
-    dates: "May 21, 2026",
-    startDate: "2026-05-21",
-    endDate: "2026-05-21",
-    items: [
-      "Applications open",
-      "Teams form",
-      "Tracks and goals are shared",
-    ],
-  },
-  {
     phase: "Phase 1",
     title: "Infrastructure Agents",
     dates: "May 22 – June 11, 2026",

@@ -90,7 +90,6 @@ const phaseRows = [
 ];
 
 const timeline = [
-  { phase: "Announcement", date: "May 21" },
   { phase: "Phase 1", date: "May 22 - June 11" },
   { phase: "Phase 2", date: "June 12 - July 11" },
   { phase: "Hackathon and Awards at MIT Media Lab", date: "July 11, 2026" },
