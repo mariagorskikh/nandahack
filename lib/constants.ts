@@ -281,9 +281,9 @@ export const TIMELINE = [
   {
     phase: "Hackathon and Awards at MIT Media Lab",
     title: "Final Event",
-    dates: "August 21, 2026",
-    startDate: "2026-08-21",
-    endDate: "2026-08-21",
+    dates: "July 11, 2026",
+    startDate: "2026-07-11",
+    endDate: "2026-07-11",
     items: [
       "Live demos",
       "Judging and review",
@@ -366,4 +366,4 @@ export const FAQS = [
 
 export const ANNOUNCEMENT_DATE = new Date("2026-05-21T00:00:00-04:00");
 export const BUILDATHON_DATE = new Date("2026-05-21T09:00:00-04:00");
-export const AWARDS_DATE = new Date("2026-08-21T18:00:00-04:00");
+export const AWARDS_DATE = new Date("2026-07-11T18:00:00-04:00");
