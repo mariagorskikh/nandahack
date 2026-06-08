@@ -2,7 +2,7 @@ import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
-const GITHUB_REPO = "https://github.com/mariagorskikh/nest";
+const GITHUB_REPO = "https://github.com/projnanda/nandatown";
 
 type Step = {
   num: string;
