@@ -287,6 +287,12 @@ summary:focus-visible {
   color: var(--muted);
 }
 
+.attend-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .intro-grid,
 .card-grid {
   display: grid;

@@ -102,6 +102,11 @@ const faqs = [
       "Step 1 is a pull request on the NANDA Town repo on GitHub. Step 2 you submit on the NANDA Town skills page. Use the button on each step above.",
   },
   {
+    question: "Do I have to attend in person?",
+    answer:
+      "No — taking part is fully online. But if you can, we recommend coming to MIT Media Lab on Saturday, July 11, 2026: the NANDA Summit runs 10:00 AM – 1:00 PM and the hackathon demos & awards run 2:00 PM – 5:00 PM. It's a great chance to meet the key leaders behind NANDA.",
+  },
+  {
     question: "Who can join?",
     answer:
       "Anyone — students, builders, researchers, and professionals. You can enter on your own or as a team.",
@@ -232,6 +237,27 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="attend" className="section section-soft">
+        <div className="section-head">
+          <h2>Join us on July 11</h2>
+          <p className="section-subtitle">
+            Taking part is fully online, so attending in person is optional — but recommended. Come to MIT Media Lab
+            on Saturday, July 11, 2026 to meet the key leaders behind NANDA.
+          </p>
+        </div>
+        <div className="intro-grid">
+          <article className="info-card">
+            <h3>NANDA Summit</h3>
+            <p>10:00 AM – 1:00 PM · MIT Media Lab</p>
+          </article>
+          <article className="info-card">
+            <h3>Hackathon demos &amp; awards</h3>
+            <p>2:00 PM – 5:00 PM · MIT Media Lab</p>
+          </article>
+        </div>
+        <p className="attend-note">Schedule is tentative — RSVP details coming soon.</p>
       </section>
 
       <section id="faq" className="section section-soft">
