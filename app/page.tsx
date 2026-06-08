@@ -3,6 +3,7 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
 const GITHUB_REPO = "https://github.com/projnanda/nandatown";
+const LUMA_URL = "https://luma.com/6q9q00sm";
 
 type Step = {
   num: string;
@@ -257,7 +258,12 @@ export default function Home() {
             <p>2:00 PM – 5:00 PM · MIT Media Lab</p>
           </article>
         </div>
-        <p className="attend-note">Schedule is tentative — RSVP details coming soon.</p>
+        <div className="attend-foot">
+          <a className="btn btn-primary" href={LUMA_URL} target="_blank" rel="noopener noreferrer">
+            RSVP on Luma
+          </a>
+          <span className="attend-note">Registration requires host approval</span>
+        </div>
       </section>
 
       <section id="faq" className="section section-soft">
