@@ -20,7 +20,7 @@ type Step = {
 const steps: Step[] = [
   {
     num: "1",
-    kicker: "Step 1 · Warm-up · 20%",
+    kicker: "Warm-up · 20%",
     title: "Improve NANDA Town",
     intro:
       "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate — across 12 building blocks. Warm up by making one of them better.",
@@ -44,7 +44,7 @@ const steps: Step[] = [
   },
   {
     num: "2",
-    kicker: "Step 2 · Main event · 80%",
+    kicker: "Main event · 80%",
     title: "Build a service agents can use on their own",
     intro:
       "The main event. Build any service, host it online, and write a SKILL.md so an AI agent can find it and use it on its own — no human help needed.",
@@ -167,12 +167,10 @@ export default function Home() {
                   <span className="step-num" aria-hidden="true">
                     {step.num}
                   </span>
-                  <div className="step-heading">
-                    <span className="step-kicker">{step.kicker}</span>
-                    <h3>{step.title}</h3>
-                  </div>
+                  <span className="step-kicker">{step.kicker}</span>
                 </div>
 
+                <h3 className="step-title">{step.title}</h3>
                 <p className="step-intro">{step.intro}</p>
 
                 <div className="step-cols">
@@ -184,14 +182,14 @@ export default function Home() {
                       ))}
                     </ol>
                   </div>
-                  <div className="step-block">
+                  <aside className="step-scored">
                     <h4>How it&apos;s scored</h4>
                     <ul className="step-judged">
                       {step.judged.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  </div>
+                  </aside>
                 </div>
 
                 <div className="step-foot">

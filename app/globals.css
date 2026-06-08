@@ -392,95 +392,111 @@ td {
 
 .step-card {
   position: relative;
-  border: 1px solid #d9e1ef;
+  border: 1px solid #e6ebf5;
   background: var(--surface);
-  border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 34px);
-  box-shadow: 0 10px 24px rgba(16, 30, 65, 0.05);
+  border-radius: 22px;
+  padding: clamp(24px, 3.4vw, 44px);
+  box-shadow: 0 1px 2px rgba(16, 30, 65, 0.04), 0 12px 32px rgba(16, 30, 65, 0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.step-card:hover {
+  border-color: #d8e0f1;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(16, 30, 65, 0.05), 0 22px 50px rgba(16, 30, 65, 0.09);
 }
 
 .step-top {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 14px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 .step-num {
   flex: none;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--primary);
+  background: linear-gradient(135deg, #2f5de1, #6366f1);
   color: #fff;
-  font-weight: 800;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(47, 93, 225, 0.28);
-}
-
-.step-heading {
-  min-width: 0;
+  box-shadow: 0 6px 16px rgba(47, 93, 225, 0.32);
 }
 
 .step-kicker {
-  display: inline-block;
-  margin-bottom: 8px;
-  background: #ecf1ff;
-  border: 1px solid #d2dcf8;
+  display: inline-flex;
+  align-items: center;
+  background: #eef2fd;
+  border: 1px solid #e0e7f8;
   border-radius: 999px;
-  color: #2e4ec5;
-  letter-spacing: 0.06em;
+  color: #4a5891;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   font-weight: 700;
-  font-size: 12px;
-  padding: 5px 10px;
+  font-size: 11px;
+  padding: 6px 12px;
 }
 
-.step-heading h3 {
+.step-title {
   margin: 0;
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .step-intro {
-  margin: 0 0 22px;
-  color: #4f5a71;
-  font-size: 1.02rem;
+  margin: 12px 0 0;
+  max-width: 62ch;
+  color: #56607a;
+  font-size: 1.06rem;
   line-height: 1.6;
 }
 
 .step-cols {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid #eef1f8;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 26px;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 28px;
   align-items: start;
 }
 
-.step-block h4 {
-  margin: 0 0 14px;
-  font-size: 0.95rem;
-  color: #556078;
-  letter-spacing: 0.02em;
+.step-block h4,
+.step-scored h4 {
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #8b94a9;
 }
 
+/* What to do — timeline list */
 .step-todo {
   margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: todo;
-  display: grid;
-  gap: 12px;
 }
 
 .step-todo li {
   counter-increment: todo;
   position: relative;
-  padding-left: 38px;
-  color: #2f394d;
-  line-height: 1.5;
-  font-size: 0.98rem;
+  padding: 0 0 18px 44px;
+  color: #38415a;
+  line-height: 1.55;
+  font-size: 1rem;
+}
+
+.step-todo li:last-child {
+  padding-bottom: 0;
 }
 
 .step-todo li::before {
@@ -488,17 +504,40 @@ td {
   position: absolute;
   left: 0;
   top: -2px;
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  background: #eef2fc;
-  border: 1px solid #d6def3;
-  color: #2e4ec5;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #dbe3f5;
+  color: #2f5de1;
   font-weight: 700;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+}
+
+.step-todo li::after {
+  content: "";
+  position: absolute;
+  left: 14.5px;
+  top: 30px;
+  bottom: 4px;
+  width: 1.5px;
+  background: #e7ecf7;
+}
+
+.step-todo li:last-child::after {
+  display: none;
+}
+
+/* How it's scored — soft panel */
+.step-scored {
+  background: linear-gradient(180deg, #f7f9fe, #f3f6fd);
+  border: 1px solid #e8edf8;
+  border-radius: 16px;
+  padding: 22px 24px;
 }
 
 .step-judged {
@@ -506,31 +545,45 @@ td {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 11px;
+  gap: 14px;
 }
 
 .step-judged li {
   position: relative;
-  padding-left: 26px;
-  color: #3a445c;
-  line-height: 1.5;
-  font-size: 0.98rem;
+  padding-left: 30px;
+  color: #46506a;
+  line-height: 1.45;
+  font-size: 0.97rem;
 }
 
 .step-judged li::before {
-  content: "✓";
+  content: "";
   position: absolute;
   left: 0;
-  top: 0;
-  color: #2f5de1;
-  font-weight: 800;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e4ebfc;
+}
+
+.step-judged li::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #2f5de1;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .step-foot {
-  margin-top: 24px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -538,44 +591,27 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 16px 0;
+  padding: 10px 0;
 }
 
 .step-connector i {
-  width: 2px;
-  height: 18px;
-  background: #cdd8ee;
+  width: 1.5px;
+  height: 16px;
+  background: #d3dcee;
   display: block;
 }
 
 .step-connector span {
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #2e4ec5;
-  background: #ecf1ff;
-  border: 1px solid #d2dcf8;
+  color: #7480a4;
+  background: #fff;
+  border: 1px solid #e3e8f4;
   border-radius: 999px;
-  padding: 6px 12px;
-}
-
-.steps-note {
-  margin: 26px 0 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.98rem;
-}
-
-.steps-note a {
-  color: #2f5de1;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.steps-note a:hover {
-  text-decoration: underline;
+  padding: 5px 14px;
+  margin: 7px 0;
 }
 
 .timeline {
