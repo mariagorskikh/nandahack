@@ -241,6 +241,7 @@ body {
   margin-bottom: 26px;
 }
 
+.section-head h1,
 .section-head h2 {
   margin: 0 0 10px;
   font-size: clamp(1.8rem, 3vw, 2.75rem);
@@ -381,6 +382,200 @@ td {
   color: #2f394d;
   font-size: 14px;
   line-height: 1.5;
+}
+
+/* Two-step instructions */
+.steps-flow {
+  display: grid;
+  gap: 0;
+}
+
+.step-card {
+  position: relative;
+  border: 1px solid #d9e1ef;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: clamp(22px, 3vw, 34px);
+  box-shadow: 0 10px 24px rgba(16, 30, 65, 0.05);
+}
+
+.step-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.step-num {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(47, 93, 225, 0.28);
+}
+
+.step-heading {
+  min-width: 0;
+}
+
+.step-kicker {
+  display: inline-block;
+  margin-bottom: 8px;
+  background: #ecf1ff;
+  border: 1px solid #d2dcf8;
+  border-radius: 999px;
+  color: #2e4ec5;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.step-heading h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.step-intro {
+  margin: 0 0 22px;
+  color: #4f5a71;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.step-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.step-block h4 {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  color: #556078;
+  letter-spacing: 0.02em;
+}
+
+.step-todo {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: todo;
+  display: grid;
+  gap: 12px;
+}
+
+.step-todo li {
+  counter-increment: todo;
+  position: relative;
+  padding-left: 38px;
+  color: #2f394d;
+  line-height: 1.5;
+  font-size: 0.98rem;
+}
+
+.step-todo li::before {
+  content: counter(todo);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: #eef2fc;
+  border: 1px solid #d6def3;
+  color: #2e4ec5;
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-judged {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 11px;
+}
+
+.step-judged li {
+  position: relative;
+  padding-left: 26px;
+  color: #3a445c;
+  line-height: 1.5;
+  font-size: 0.98rem;
+}
+
+.step-judged li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #2f5de1;
+  font-weight: 800;
+}
+
+.step-foot {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.step-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.step-connector i {
+  width: 2px;
+  height: 18px;
+  background: #cdd8ee;
+  display: block;
+}
+
+.step-connector span {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #2e4ec5;
+  background: #ecf1ff;
+  border: 1px solid #d2dcf8;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.steps-note {
+  margin: 26px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.steps-note a {
+  color: #2f5de1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.steps-note a:hover {
+  text-decoration: underline;
 }
 
 .timeline {
@@ -590,6 +785,11 @@ td {
   .intro-grid,
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .step-cols {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .site-footer {

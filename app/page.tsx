@@ -1,199 +1,122 @@
 import Image from "next/image";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 
-const phaseRows = [
+const GITHUB_REPO = "https://github.com/mariagorskikh/nest";
+
+type Step = {
+  num: string;
+  kicker: string;
+  title: string;
+  intro: string;
+  todo: string[];
+  judged: string[];
+  href: string;
+  cta: string;
+  secondaryHref?: string;
+  secondaryCta?: string;
+};
+
+const steps: Step[] = [
   {
-    label: "PHASE 1",
-    dates: "May 22 - June 11, 2026",
-    title: "Infrastructure Agents",
-    description:
-      "Build agent infrastructure that solves real enterprise problems. On demo day, a judge hands a stock OpenClaw agent your instructions — if it can use what you built, you pass.",
-    columns: ["Track", "What It Builds", "Pipeline Impact", "Revenue Lever"],
-    rows: [
-      {
-        track: "Client 0",
-        builds: "Internal AI agents, copilots, productivity tools",
-        impact: "Creates proven use cases + credibility",
-        revenue: "Faster deal conversion (proof-led selling)",
-      },
-      {
-        track: "Enterprise AI (incl. Modernization)",
-        builds: "Client-ready solutions (SAP, legacy, agents)",
-        impact: "Generates direct qualified opportunities",
-        revenue: "Large transformation deals ($$$)",
-      },
-      {
-        track: "Sales AI Enablement (Client 0 x Enterprise)",
-        builds: "AI-powered account insights, RFP agents",
-        impact: "Improves deal identification + win rates",
-        revenue: "Pipeline expansion + higher conversion",
-      },
-      {
-        track: "Responsible AI",
-        builds: "Safety, governance, red-teaming solutions",
-        impact: "Reduces enterprise adoption friction",
-        revenue: "Unlocks regulated industry deals (BFSI, healthcare)",
-      },
-      {
-        track: "Executive AI Coaching",
-        builds: "AI copilots for CXOs + coaching model",
-        impact: "Opens C-suite access + strategic deals",
-        revenue: "High-value consulting + transformation programs",
-      },
+    num: "1",
+    kicker: "Step 1 · Warm-up · 20%",
+    title: "Improve NANDA Town",
+    intro:
+      "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate — across 12 building blocks. Warm up by making one of them better.",
+    todo: [
+      "Open the NANDA Town repo on GitHub and download (clone) it.",
+      "Install it and get it running on your computer — the README has the exact commands.",
+      "Pick one of the 12 building blocks and improve it, or add a new one.",
+      "Add tests, and make sure the project's checks pass.",
+      "Open a pull request named hackathon/your-name-topic. It shows up on the NANDA Town hackathon page automatically.",
+      "Wait for review — a judge usually replies within about a week.",
     ],
-  },
-  {
-    label: "PHASE 2",
-    dates: "June 12 - July 11, 2026",
-    title: "The Arena",
-    description:
-      "Top teams from Phase 1 enter head-to-head arena challenges. Agents compete live across six arenas — deploy, coordinate, trade, adapt, defend, and integrate — all under pressure.",
-    columns: ["Arena", "Challenge", "Tagline", "What It Tests"],
-    rows: [
-      {
-        track: "The Forge",
-        builds: "Deploy or die — fastest production-grade agent deployment",
-        impact: "Deployment speed & reliability",
-        revenue: "Infrastructure readiness",
-      },
-      {
-        track: "The Commons",
-        builds: "Multi-agent coordination via shared memory",
-        impact: "Collective intelligence that works",
-        revenue: "Coordination efficiency",
-      },
-      {
-        track: "The Bazaar",
-        builds: "Agent economy — trade services, verify identity, settle payments",
-        impact: "Trust no one, verify everything",
-        revenue: "Economic infrastructure",
-      },
-      {
-        track: "The Gauntlet",
-        builds: "Rapid-fire unknown challenges — pure reasoning under pressure",
-        impact: "Adapt or be forgotten",
-        revenue: "Generalization ability",
-      },
-      {
-        track: "The Wall",
-        builds: "Survive adversarial attacks while completing tasks",
-        impact: "Last agent standing",
-        revenue: "Security & resilience",
-      },
-      {
-        track: "The Throne",
-        builds: "Full integration — deploy, coordinate, trade, and defend simultaneously",
-        impact: "Rule them all",
-        revenue: "Grand champion",
-      },
+    judged: [
+      "It works correctly and is well tested.",
+      "It fits how NANDA Town is already built.",
+      "It's clearly documented.",
     ],
+    href: GITHUB_REPO,
+    cta: "Open the repo on GitHub",
+    secondaryHref: "/go/nanda-town",
+    secondaryCta: "See how the town works",
+  },
+  {
+    num: "2",
+    kicker: "Step 2 · Main event · 80%",
+    title: "Build a service agents can use on their own",
+    intro:
+      "The main event. Build any service, host it online, and write a SKILL.md so an AI agent can find it and use it on its own — no human help needed.",
+    todo: [
+      "Build any service you want and host it online so it stays reachable (Railway, Vercel, Render, Fly — your choice).",
+      "Test your endpoints in a browser or with curl to make sure they work.",
+      "Write a SKILL.md: a plain Markdown file with your service's name, what it does, its web address, the endpoints, and the steps to use them.",
+      "Submit it on the NANDA Town skills page — paste a hosted link, a GitHub repo, or the text, plus your live endpoint links.",
+    ],
+    judged: [
+      "Useful — it does something agents really need.",
+      "Creative — it's a fresh idea.",
+      "Easy to set up — little effort to a working call.",
+      "Agents succeed using only your SKILL.md.",
+    ],
+    href: "/go/submit",
+    cta: "Submit your skill",
   },
 ];
 
-const timeline = [
-  { phase: "Phase 1", date: "May 22 - June 11" },
-  { phase: "Phase 2", date: "June 12 - July 11" },
-  { phase: "Hackathon and Awards at MIT Media Lab", date: "July 11, 2026" },
-];
-
-const audience = [
+const scoring = [
   {
-    title: "Builders and engineers",
-    description: "You like shipping real systems, not just demos. Bring your stack and build the missing agent layers.",
-  },
-  {
-    title: "Researchers and students",
-    description:
-      "Test new ideas in production-like scenarios and get feedback from practitioners, judges, and mentors.",
-  },
-  {
-    title: "Product and domain teams",
-    description: "Have a real enterprise pain point? Turn it into a solution with measurable business impact.",
-  },
-];
-
-const benefits = [
-  {
-    title: "Mentors and feedback",
-    description: "Get direct input from technical and business leaders across enterprise AI and systems design.",
-  },
-  {
-    title: "Real-world evaluation",
-    description: "Your work is judged on utility, robustness, and how well a stock agent can actually use it.",
-  },
-  {
-    title: "Career and visibility",
-    description: "Top teams present at the final MIT event and gain visibility with leaders across the ecosystem.",
-  },
-];
-
-const judgingCriteria = [
-  {
-    title: "Impact",
-    weight: "40%",
-    description: "Does it solve a real problem that developers actually have?",
-  },
-  {
-    title: "Technical Depth",
-    weight: "40%",
-    description: "Is the implementation solid, thoughtful, and technically credible?",
-  },
-  {
-    title: "Simplicity",
+    title: "Step 1 — NANDA Town",
     weight: "20%",
-    description: "Is it easy to understand, adopt, and use?",
+    description:
+      "A short warm-up. Scored on correct, well-tested code that fits NANDA Town's design and is clearly documented.",
+  },
+  {
+    title: "Step 2 — Service + SKILL.md",
+    weight: "80%",
+    description:
+      "The main event. Scored on usefulness, creativity, easy setup, and whether agents can use it from your SKILL.md alone.",
   },
 ];
 
 const faqs = [
   {
-    question: "Who can apply?",
+    question: "Do I have to do both steps?",
     answer:
-      "Students, builders, researchers, and professionals are welcome. Cross-functional teams are encouraged.",
+      "We recommend it. Step 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Step 2 — your own service with a SKILL.md — is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
   },
   {
-    question: "Do I need a full team before applying?",
+    question: "What is a SKILL.md?",
     answer:
-      "No. You can apply as an individual or as a team. Team matching support will be available before the build phase.",
+      "It's a plain Markdown file that teaches an AI agent how to use your service — what it does, its web address, the endpoints, and how to call them. An agent reads it and then uses your service on its own, with no human help.",
   },
   {
-    question: "What should we submit?",
+    question: "What is NANDA Town?",
     answer:
-      "A working prototype, clear documentation, and a short demo that shows the problem, approach, and impact.",
+      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Step 1 you improve one of those building blocks, so you learn how the town works before building your own service.",
   },
   {
-    question: "What makes a strong project?",
+    question: "Where do I submit?",
     answer:
-      "Projects that solve high-friction enterprise bottlenecks with practical, reliable, and testable agent workflows.",
+      "Step 1 is a pull request on the NANDA Town repo on GitHub. Step 2 you submit on the NANDA Town skills page. Use the button on each step above.",
+  },
+  {
+    question: "Who can join?",
+    answer:
+      "Anyone — students, builders, researchers, and professionals. You can enter on your own or as a team.",
   },
 ];
 
 export default function Home() {
   return (
     <main className="landing-shell">
-      <header className="top-nav">
-        <a href="#" className="mit-lockup" aria-label="MIT home">
-          <Image
-            src="/mit-logo.svg"
-            alt="Massachusetts Institute of Technology"
-            className="mit-logo"
-            width={280}
-            height={72}
-            priority
-          />
-        </a>
-
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="#faq">FAQ</a>
-          <a className="btn btn-primary" href="https://forms.gle/HKCSitSChcFSqyzY8">
-            Apply to Attend
-          </a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">PHASE 1: MAY 22 - JUN 11 · PHASE 2: JUN 12 - JUL 11, 2026</p>
+            <p className="date-pill">OPEN NOW — IN-PERSON FINALE JULY 11, 2026 · MIT MEDIA LAB</p>
             <h1>
               NandaHack:
               <br />
@@ -203,15 +126,14 @@ export default function Home() {
             </h1>
             <p className="hero-sponsors-inline">HCLTech · MIT Media Lab</p>
             <p className="hero-copy">
-              Build a system, tool, or layer that fixes a real bottleneck in how AI agents are deployed,
-              coordinated, or scaled.
+              Two steps. First, warm up on NANDA Town. Then build a service an AI agent can use on its own.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">
                 Apply to Attend
               </a>
-              <a className="btn btn-light btn-xl" href="https://forms.gle/ziXo4WHMQei7B9rf9">
-                Volunteer
+              <a className="btn btn-light btn-xl" href="#how">
+                See how it works
               </a>
             </div>
           </div>
@@ -219,7 +141,7 @@ export default function Home() {
           <div className="hero-art">
             <Image
               src="/landing_image.webp"
-              alt="NandaHack Agent Arena visual"
+              alt="NandaHack visual"
               className="hero-art-image"
               fill
               sizes="(max-width: 1024px) 100vw, 520px"
@@ -229,109 +151,80 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="section">
+      <section id="how" className="section">
         <div className="section-head">
-          <h2>What is NandaHack?</h2>
+          <h2>How it works</h2>
           <p className="section-subtitle">
-            A high-signal hackathon for teams building practical infrastructure for enterprise AI agents.
+            Two steps. Do the warm-up first, then build your own service for the main event.
           </p>
         </div>
-        <div className="intro-grid">
-          <article className="info-card">
-            <h3>Mission</h3>
-            <p>
-              Move beyond chatbot demos and build the trust, coordination, memory, safety, and integration layers that
-              enterprises actually need.
-            </p>
-          </article>
-          <article className="info-card">
-            <h3>Format</h3>
-            <p>
-              Two phases over ten weeks. Teams prototype, iterate with mentor feedback, and present at a final live
-              event at MIT Media Lab.
-            </p>
-          </article>
-        </div>
-      </section>
 
-      <section className="section section-soft">
-        <div className="section-head">
-          <h2>Who should join</h2>
-        </div>
-        <div className="card-grid">
-          {audience.map((item) => (
-            <article key={item.title} className="info-card">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
+        <div className="steps-flow">
+          {steps.map((step, idx) => (
+            <div key={step.num}>
+              <article className="step-card">
+                <div className="step-top">
+                  <span className="step-num" aria-hidden="true">
+                    {step.num}
+                  </span>
+                  <div className="step-heading">
+                    <span className="step-kicker">{step.kicker}</span>
+                    <h3>{step.title}</h3>
+                  </div>
+                </div>
+
+                <p className="step-intro">{step.intro}</p>
+
+                <div className="step-cols">
+                  <div className="step-block">
+                    <h4>What to do</h4>
+                    <ol className="step-todo">
+                      {step.todo.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div className="step-block">
+                    <h4>How it&apos;s scored</h4>
+                    <ul className="step-judged">
+                      {step.judged.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="step-foot">
+                  <a className="btn btn-primary" href={step.href} target="_blank" rel="noopener noreferrer">
+                    {step.cta}
+                  </a>
+                  {step.secondaryHref && (
+                    <a className="btn btn-light" href={step.secondaryHref} target="_blank" rel="noopener noreferrer">
+                      {step.secondaryCta}
+                    </a>
+                  )}
+                </div>
+              </article>
+
+              {idx === 0 && (
+                <div className="step-connector" aria-hidden="true">
+                  <i />
+                  <span>then</span>
+                  <i />
+                </div>
+              )}
+            </div>
           ))}
         </div>
-      </section>
-
-      <section id="tracks" className="section section-soft">
-        <div className="section-head">
-          <h2>Why participate</h2>
-        </div>
-        <div className="card-grid">
-          {benefits.map((item) => (
-            <article key={item.title} className="info-card">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="phases" className="section">
-        <div className="section-head">
-          <h2>Phases & Tracks</h2>
-          <p className="section-subtitle">
-            Build solutions that can be used by real enterprise agents in real operational workflows.
-          </p>
-        </div>
-        {phaseRows.map((phase, idx) => (
-          <article key={phase.title} className="phase-card" style={idx > 0 ? { marginTop: 24 } : undefined}>
-            <div className="phase-header">
-              <span className="phase-tag">{phase.label}</span>
-              <span className="phase-date">{phase.dates}</span>
-            </div>
-            <h3>{phase.title}</h3>
-            <p>{phase.description}</p>
-
-            <div className="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    {phase.columns.map((col: string) => (
-                      <th key={col}>{col}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {phase.rows.map((row: { track: string; builds: string; impact: string; revenue: string }) => (
-                    <tr key={row.track}>
-                      <td>{row.track}</td>
-                      <td>{row.builds}</td>
-                      <td>{row.impact}</td>
-                      <td>{row.revenue}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </article>
-        ))}
       </section>
 
       <section id="judging" className="section section-soft">
         <div className="section-head">
-          <h2>Judging</h2>
-          <p className="section-subtitle">
-            The judging is simple and weighted toward substance.
-          </p>
+          <h2>How scoring works</h2>
+          <p className="section-subtitle">The warm-up is worth 20%. The main event is worth 80%.</p>
         </div>
-        <div className="card-grid">
-          {judgingCriteria.map((item) => (
+        <div className="intro-grid">
+          {scoring.map((item) => (
             <article key={item.title} className="info-card judging-card">
               <div className="judging-topline">
                 <h3>{item.title}</h3>
@@ -339,22 +232,6 @@ export default function Home() {
               </div>
               <p>{item.description}</p>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="timeline" className="section timeline">
-        <h2>Timeline</h2>
-        <p className="section-subtitle">Ten weeks, two phases, one final event at MIT</p>
-        <div className="timeline-list">
-          {timeline.map((item) => (
-            <div className="timeline-item" key={item.phase}>
-              <span className="timeline-dot" aria-hidden="true" />
-              <div className="timeline-card">
-                <strong>{item.phase}</strong>
-                <span>{item.date}</span>
-              </div>
-            </div>
           ))}
         </div>
       </section>
@@ -373,24 +250,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <div className="footer-left footer-brand">
-          <span className="footer-brand-text">NandaHack</span>
-          <span className="footer-sep">|</span>
-          <span className="footer-partners">HCLTech & MIT Media Lab</span>
-        </div>
-        <nav className="footer-links" aria-label="Footer">
-          <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
-          <a href="https://www.media.mit.edu/" target="_blank" rel="noopener noreferrer">
-            MIT Media Lab
-          </a>
-          <a href="https://accessibility.mit.edu" target="_blank" rel="noopener noreferrer">
-            Accessibility
-          </a>
-        </nav>
-        <div className="footer-right">© 2026 NandaHack · MIT</div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
