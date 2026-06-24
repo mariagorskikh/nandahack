@@ -4,6 +4,8 @@ import SiteFooter from "../components/SiteFooter";
 
 const GITHUB_REPO = "https://github.com/projnanda/nandatown";
 const LUMA_URL = "https://luma.com/6q9q00sm";
+const DISCORD_URL = "https://discord.gg/DJeWUtxnF";
+const WEBINAR_URL = "https://luma.com/a98t3dze";
 
 type Step = {
   num: string;
@@ -219,6 +221,38 @@ export default function Home() {
               )}
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="connect" className="section">
+        <div className="section-head">
+          <h2>Stay connected</h2>
+          <p className="section-subtitle">
+            Join the Discord for everything happening during the hackathon, and register for the info
+            webinar to get the full walkthrough before you start.
+          </p>
+        </div>
+        <div className="intro-grid">
+          <article className="info-card connect-card">
+            <h3>Join the Discord</h3>
+            <p>
+              All hackathon communication lives here — updates, announcements, team formation, and
+              technical questions. It&apos;s the place to get help and find teammates.
+            </p>
+            <a className="btn btn-primary" href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+              Join the Discord
+            </a>
+          </article>
+          <article className="info-card connect-card">
+            <h3>Watch the info webinar</h3>
+            <p>
+              A walkthrough of the format, timeline, judging criteria, NANDA Town, and SKILL.md —
+              everything you need to make the most of NandaHack.
+            </p>
+            <a className="btn btn-primary" href={WEBINAR_URL} target="_blank" rel="noopener noreferrer">
+              Register for the webinar
+            </a>
+          </article>
         </div>
       </section>
 
