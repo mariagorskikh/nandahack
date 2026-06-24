@@ -57,7 +57,11 @@ export default function About() {
             <h3>The big idea</h3>
             <p>
               AI agents are only as useful as the services they can reach. NandaHack is about building those
-              services — and improving the shared town that lets agents find and use them.
+              services — and improving the shared town that lets agents find and use them. It&apos;s part of{" "}
+              <a className="text-link" href="https://projectnanda.org/#/" target="_blank" rel="noopener noreferrer">
+                Project NANDA
+              </a>
+              , the broader effort behind NANDA Town.
             </p>
           </article>
           <article className="info-card">

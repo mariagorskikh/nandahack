@@ -12,6 +12,9 @@ export default function SiteFooter() {
         <a href="https://discord.gg/DJeWUtxnF" target="_blank" rel="noopener noreferrer">
           Discord
         </a>
+        <a href="https://projectnanda.org/#/" target="_blank" rel="noopener noreferrer">
+          Project NANDA
+        </a>
         <a href="https://www.media.mit.edu/" target="_blank" rel="noopener noreferrer">
           MIT Media Lab
         </a>

@@ -50,6 +50,18 @@ summary:focus-visible {
   background: var(--bg);
 }
 
+.text-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: border-color 0.18s ease;
+}
+
+.text-link:hover {
+  border-bottom-color: var(--accent);
+}
+
 /* Nav */
 .top-nav {
   max-width: var(--container);
