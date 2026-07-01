@@ -8,8 +8,15 @@ export default function SiteFooter() {
       </div>
       <nav className="footer-links" aria-label="Footer">
         <a href="/about">About</a>
+        <a href="/#resources">Resources</a>
         <a href="/#faq">FAQ</a>
-        <a href="https://discord.gg/DJeWUtxnF" target="_blank" rel="noopener noreferrer">
+        <a href="https://nandatown.projectnanda.org" target="_blank" rel="noopener noreferrer">
+          NANDA Town
+        </a>
+        <a href="https://dhve.github.io/nandahack-guide/" target="_blank" rel="noopener noreferrer">
+          Guide
+        </a>
+        <a href="https://discord.gg/xHAQNcF3m2" target="_blank" rel="noopener noreferrer">
           Discord
         </a>
         <a href="https://projectnanda.org/#/" target="_blank" rel="noopener noreferrer">

@@ -3,9 +3,74 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
 const GITHUB_REPO = "https://github.com/projnanda/nandatown";
+const NANDA_TOWN_URL = "https://nandatown.projectnanda.org";
+const GUIDE_URL = "https://dhve.github.io/nandahack-guide/";
+const LUMA_CALENDAR = "https://luma.com/nanda";
 const LUMA_URL = "https://luma.com/6q9q00sm";
-const DISCORD_URL = "https://discord.gg/DJeWUtxnF";
+const DISCORD_URL = "https://discord.gg/xHAQNcF3m2";
 const WEBINAR_URL = "https://luma.com/a98t3dze";
+
+type Resource = {
+  kicker: string;
+  title: string;
+  description: string;
+  href: string;
+  cta: string;
+};
+
+const resources: Resource[] = [
+  {
+    kicker: "Live app",
+    title: "NANDA Town",
+    description:
+      "The open sandbox where AI agents talk, trust, pay, and coordinate. Explore it and run experiments.",
+    href: NANDA_TOWN_URL,
+    cta: "Open NANDA Town",
+  },
+  {
+    kicker: "Quickstart",
+    title: "NandaHack Guide",
+    description:
+      "An interactive walkthrough for your first NANDA Town pull request, writing a SKILL.md, and a live demo.",
+    href: GUIDE_URL,
+    cta: "Read the guide",
+  },
+  {
+    kicker: "Source code",
+    title: "NANDA Town on GitHub",
+    description:
+      "Clone the repo, run it locally, and improve one of the 12 building blocks for the Step 1 warm-up.",
+    href: GITHUB_REPO,
+    cta: "View the repo",
+  },
+  {
+    kicker: "Ask questions",
+    title: "Nanda Discord",
+    description:
+      "The Project NANDA community server. Get help, find teammates, and ask anything about the hackathon.",
+    href: DISCORD_URL,
+    cta: "Join the Discord",
+  },
+];
+
+type LumaEvent = {
+  title: string;
+  date: string;
+  href: string;
+};
+
+const events: LumaEvent[] = [
+  {
+    title: "NandaHack Information Session",
+    date: "Mon, July 7, 2026 · Virtual",
+    href: WEBINAR_URL,
+  },
+  {
+    title: "Nanda Summit + NandaHack at MIT",
+    date: "Sat, July 11, 2026 · Summit 9:30 AM to 1:00 PM, Hackathon 2:00 to 5:00 PM · MIT Media Lab",
+    href: LUMA_URL,
+  },
+];
 
 type Step = {
   num: string;
@@ -249,6 +314,49 @@ export default function Home() {
                   <i />
                 </div>
               )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="resources" className="section">
+        <div className="section-head">
+          <h2>Resources &amp; quick links</h2>
+          <p className="section-subtitle">
+            Everything you need to build, in one place: the live app, the step-by-step guide, the code,
+            the community, and every event.
+          </p>
+        </div>
+
+        <div className="resource-grid">
+          {resources.map((resource) => (
+            <article key={resource.title} className="resource-card">
+              <p className="resource-kicker">{resource.kicker}</p>
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <a className="btn btn-primary" href={resource.href} target="_blank" rel="noopener noreferrer">
+                {resource.cta}
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div className="resource-events">
+          <div className="resource-events-head">
+            <h3>NandaHack events</h3>
+            <a className="text-link" href={LUMA_CALENDAR} target="_blank" rel="noopener noreferrer">
+              See all events on Luma
+            </a>
+          </div>
+          {events.map((event) => (
+            <div key={event.title} className="resource-event">
+              <div className="resource-event-main">
+                <p className="resource-event-title">{event.title}</p>
+                <p className="resource-event-date">{event.date}</p>
+              </div>
+              <a className="btn btn-light" href={event.href} target="_blank" rel="noopener noreferrer">
+                RSVP on Luma
+              </a>
             </div>
           ))}
         </div>
