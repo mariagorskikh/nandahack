@@ -68,6 +68,36 @@ const steps: Step[] = [
   },
 ];
 
+type Mentor = {
+  name: string;
+  credential?: string;
+  role: string;
+  photo: string;
+  bio: string;
+};
+
+const mentors: Mentor[] = [
+  {
+    name: "Grace Davin",
+    credential: "AIGP",
+    role: "Thought Leadership & Enablement, Office of Responsible AI and Governance · HCLTech",
+    photo: "/mentors/grace-davin.jpg",
+    bio: "Grace manages the Thought Leadership and Enablement Team in the Office of Responsible AI and Governance at HCLTech, where she turns organizational expertise into content, tools, and programs that educate employees, support sales, and demonstrate the company's strength in Responsible AI and Governance. Previously, she was a Program Manager supporting operational functions at IBM, including IBM Consulting's North America Cybersecurity and Operations teams. She is AIGP certified and a member of the IAPP.",
+  },
+  {
+    name: "Jeff Turnham",
+    role: "AVP & Chief Architect, Applied Research · HCLTech",
+    photo: "/mentors/jeff-turnham.jpg",
+    bio: "Jeff is Assistant Vice President and Chief Architect with the HCLTech Applied Research team. His work focuses on building secure, governed AI systems that help organizations adopt AI at scale — including agentic software development and AI security. Previously, Jeff held senior architecture and engineering leadership roles at IBM, including leading architecture for AppScan and enterprise application security products.",
+  },
+  {
+    name: "Dr. Jie Hui",
+    role: "Head of AI Adoption Center of Excellence · HCLTech",
+    photo: "/mentors/jie-hui.jpg",
+    bio: "Jie is an enterprise AI deployment and innovation leader at HCLTech, where she heads the AI Adoption Center of Excellence. Her work focuses on accelerating enterprise adoption of OpenAI technologies, driving AI commercialization, and helping organizations deploy secure, governed AI at scale through adoption frameworks, governance, and business transformation. Previously, she led Enterprise AI and Digital Innovation at T-Mobile, scaling ChatGPT Enterprise to 25,000+ employees. She holds a Ph.D. in Computer Engineering and is the inventor of 30+ patents.",
+  },
+];
+
 const scoring = [
   {
     title: "Step 1 — NANDA Town",
@@ -253,6 +283,38 @@ export default function Home() {
               Register for the webinar
             </a>
           </article>
+        </div>
+      </section>
+
+      <section id="mentors" className="section">
+        <div className="section-head">
+          <h2>Meet your mentors</h2>
+          <p className="section-subtitle">
+            Guidance from HCLTech leaders in Responsible AI, enterprise adoption, and secure AI architecture.
+          </p>
+        </div>
+        <div className="mentor-grid">
+          {mentors.map((mentor) => (
+            <article key={mentor.name} className="mentor-card">
+              <div className="mentor-photo-wrap">
+                <Image
+                  src={mentor.photo}
+                  alt={mentor.name}
+                  className="mentor-photo"
+                  width={96}
+                  height={96}
+                />
+              </div>
+              <div className="mentor-head">
+                <h3>
+                  {mentor.name}
+                  {mentor.credential && <span className="mentor-cred">, {mentor.credential}</span>}
+                </h3>
+                <p className="mentor-role">{mentor.role}</p>
+              </div>
+              <p className="mentor-bio">{mentor.bio}</p>
+            </article>
+          ))}
         </div>
       </section>
 
