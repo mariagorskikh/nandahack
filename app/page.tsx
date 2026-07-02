@@ -161,6 +161,12 @@ const mentors: Mentor[] = [
     photo: "/mentors/jie-hui.jpg",
     bio: "Jie is an enterprise AI deployment and innovation leader at HCLTech, where she heads the AI Adoption Center of Excellence. Her work focuses on accelerating enterprise adoption of OpenAI technologies, driving AI commercialization, and helping organizations deploy secure, governed AI at scale through adoption frameworks, governance, and business transformation. Previously, she led Enterprise AI and Digital Innovation at T-Mobile, scaling ChatGPT Enterprise to 25,000+ employees. She holds a Ph.D. in Computer Engineering and is the inventor of 30+ patents.",
   },
+  {
+    name: "Dr. Gary Kuvich",
+    role: "Senior Solution Director, Evolve AI Practice · HCLTech",
+    photo: "/mentors/gary-kuvich.png",
+    bio: "Gary is a Senior Solution Director in the HCLTech Evolve AI Practice, with many years of experience across both industry and academia and a track record of successful generative and agentic AI implementations across diverse customer platforms.",
+  },
 ];
 
 const scoring = [
