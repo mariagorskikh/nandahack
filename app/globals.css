@@ -755,12 +755,27 @@ summary:focus-visible {
   transform: rotate(45deg);
 }
 
+.step-checklist {
+  margin-top: 26px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+
 .step-foot {
   margin-top: 30px;
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.step-note {
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #9a9aa4;
 }
 
 .step-connector {

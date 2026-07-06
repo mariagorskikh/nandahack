@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "NandaHack: Agentic AI Hackathon — HCLTech and MIT Media Lab",
+  title: "NandaHack: Agentic AI Hackathon · HCLTech and MIT Media Lab",
   description:
     "NandaHack: Agentic AI Hackathon by HCLTech and MIT Media Lab. Build systems, tools, and layers that fix real bottlenecks in how AI agents are deployed, coordinated, and scaled.",
   openGraph: {

@@ -25,7 +25,7 @@ const resources: Resource[] = [
     description:
       "The open sandbox where AI agents talk, trust, pay, and coordinate. Explore it and run experiments.",
     href: NANDA_TOWN_URL,
-    cta: "Open NANDA Town",
+    cta: "Explore NANDA Town",
   },
   {
     kicker: "Quickstart",
@@ -79,8 +79,10 @@ type Step = {
   intro: string;
   todo: string[];
   judged: string[];
+  checklist?: string[];
   href: string;
   cta: string;
+  note?: string;
   secondaryHref?: string;
   secondaryCta?: string;
 };
@@ -88,48 +90,55 @@ type Step = {
 const steps: Step[] = [
   {
     num: "1",
-    kicker: "Warm-up · 20%",
+    kicker: "Phase 1 · Warm-up · 20%",
     title: "Improve NANDA Town",
     intro:
-      "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate — across 12 building blocks. Warm up by making one of them better.",
+      "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate, across 12 building blocks. Warm up by making one of them better.",
     todo: [
       "Open the NANDA Town repo on GitHub and download (clone) it.",
-      "Install it and get it running on your computer — the README has the exact commands.",
+      "Install it and get it running on your computer. The README has the exact commands.",
       "Pick one of the 12 building blocks and improve it, or add a new one.",
       "Add tests, and make sure the project's checks pass.",
       "Open a pull request named hackathon/your-name-topic. It shows up on the NANDA Town hackathon page automatically.",
-      "Wait for review — a judge usually replies within about a week.",
+      "Wait for review. A judge usually replies within about a week.",
     ],
     judged: [
       "It works correctly and is well tested.",
       "It fits how NANDA Town is already built.",
       "It's clearly documented.",
     ],
-    href: GITHUB_REPO,
-    cta: "Ready to submit your PR?",
+    href: `${GITHUB_REPO}#readme`,
+    cta: "Start Phase 1: open the README",
     secondaryHref: "/go/nanda-town",
-    secondaryCta: "See how the town works",
+    secondaryCta: "Explore NANDA Town",
   },
   {
     num: "2",
-    kicker: "Main event · 80%",
-    title: "Build a service + a SKILL.md that agents can use on their own",
+    kicker: "Phase 2 · Main event · 80%",
+    title: "Build a service, then write a SKILL.md for it",
     intro:
-      "The main event. You build two things: (1) a service hosted online, and (2) a SKILL.md — a plain text file that tells an AI agent what your service does and how to call it. From your SKILL.md alone, an agent can find and use your service with no human help.",
+      "The main event. You build one service and host it online. Then you write a SKILL.md, a plain text file that tells an AI agent what your service does and how to call it. You are not building an agent. Existing agents read your SKILL.md and use your service on their own.",
     todo: [
-      "Build any service you want and host it online so it stays reachable (Railway, Vercel, Render, Fly — your choice).",
+      "Build any service you want and host it online so it stays reachable (Railway, Vercel, Render, Fly, your choice).",
       "Test your endpoints in a browser or with curl to make sure they work.",
       "Write a SKILL.md: a plain Markdown file with your service's name, what it does, its web address, the endpoints, and the steps to use them.",
-      "Submit it on the NANDA Town skills page — paste a hosted link, a GitHub repo, or the text, plus your live endpoint links.",
+      "Submit it on the NANDA Town skills page. The submission form is on that page itself. Scroll down to find it.",
     ],
     judged: [
-      "Useful — it does something agents really need.",
-      "Creative — it's a fresh idea.",
-      "Easy to set up — little effort to a working call.",
+      "Useful: it does something agents really need.",
+      "Creative: it's a fresh idea.",
+      "Easy to set up: little effort to a working call.",
       "Agents succeed using only your SKILL.md.",
+    ],
+    checklist: [
+      "You registered with the participation form (there is only one form).",
+      "Your service is hosted online and reachable.",
+      "You tested every endpoint yourself.",
+      "Your SKILL.md is written and names the service, the address, and the endpoints.",
     ],
     href: "/go/submit",
     cta: "Submit your skill",
+    note: "This button opens the NANDA Town skills page. Submit your skill there, on that page. Scroll down to find the form.",
   },
 ];
 
@@ -153,7 +162,7 @@ const mentors: Mentor[] = [
     name: "Jeff Turnham",
     role: "AVP & Chief Architect, Applied Research · HCLTech",
     photo: "/mentors/jeff-turnham.jpg",
-    bio: "Jeff is Assistant Vice President and Chief Architect with the HCLTech Applied Research team. His work focuses on building secure, governed AI systems that help organizations adopt AI at scale — including agentic software development and AI security. Previously, Jeff held senior architecture and engineering leadership roles at IBM, including leading architecture for AppScan and enterprise application security products.",
+    bio: "Jeff is Assistant Vice President and Chief Architect with the HCLTech Applied Research team. His work focuses on building secure, governed AI systems that help organizations adopt AI at scale, including agentic software development and AI security. Previously, Jeff held senior architecture and engineering leadership roles at IBM, including leading architecture for AppScan and enterprise application security products.",
   },
   {
     name: "Dr. Jie Hui",
@@ -171,13 +180,13 @@ const mentors: Mentor[] = [
 
 const scoring = [
   {
-    title: "Phase 1 — NANDA Town",
+    title: "Phase 1: NANDA Town",
     weight: "20%",
     description:
       "A short warm-up. Scored on correct, well-tested code that fits NANDA Town's design and is clearly documented.",
   },
   {
-    title: "Phase 2 — Service + SKILL.md",
+    title: "Phase 2: Service + SKILL.md",
     weight: "80%",
     description:
       "The main event. Scored on usefulness, creativity, easy setup, and whether agents can use it from your SKILL.md alone.",
@@ -186,39 +195,54 @@ const scoring = [
 
 const faqs = [
   {
+    question: "What order do I do things in?",
+    answer:
+      "Register with the participation form, do Phase 1, then do Phase 2 and submit your skill. Phase 1 is the warm-up: improve NANDA Town and open a pull request. Phase 2 is the main event: build a service, write a SKILL.md for it, and submit it on the NANDA Town skills page.",
+  },
+  {
+    question: "How many forms are there?",
+    answer:
+      "One. The participation form is the only form you fill out on this site. Phase 1 is submitted as a pull request on GitHub, and Phase 2 is submitted on the NANDA Town skills page. Neither phase has a separate form here.",
+  },
+  {
     question: "Do I have to do both phases?",
     answer:
-      "We recommend it. Phase 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Phase 2 — your own service with a SKILL.md — is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
+      "We recommend it. Phase 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Phase 2, your own service with a SKILL.md, is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
   },
   {
     question: "How do I start Phase 1?",
     answer:
-      "Start Phase 1 by opening the NANDA Town repo on GitHub and following the README to clone it and get it running locally. Then pick one of the 12 building blocks, improve it or add a new one, add tests, and open a pull request named hackathon/your-name-topic. When you're ready to submit your PR, use the button on Phase 1 above.",
+      "Press the Start Phase 1 button above. It opens the NANDA Town README, which has the exact commands to clone the repo and run it locally. Then pick one of the 12 building blocks, improve it or add a new one, add tests, and open a pull request named hackathon/your-name-topic.",
+  },
+  {
+    question: "Am I building an agent?",
+    answer:
+      "No. In Phase 2 you build a service and write a SKILL.md that describes it. Agents that already exist read your SKILL.md and call your service. You never write agent code.",
   },
   {
     question: "What is a SKILL.md?",
     answer:
-      "It's a plain Markdown file that teaches an AI agent how to use your service — what it does, its web address, the endpoints, and how to call them. An agent reads it and then uses your service on its own, with no human help.",
+      "It's a plain Markdown file that teaches an AI agent how to use your service: what it does, its web address, the endpoints, and how to call them. An agent reads it and then uses your service on its own, with no human help.",
   },
   {
     question: "What is NANDA Town?",
     answer:
-      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Phase 1 you improve one of those building blocks, so you learn how the town works before building your own service.",
+      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Phase 1 you improve one of those building blocks, so you learn how the town works before building your own service. Use the Explore NANDA Town button above to see it running.",
   },
   {
     question: "Where do I submit?",
     answer:
-      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 you submit on the NANDA Town skills page. Use the button on each phase above.",
+      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 is submitted on the NANDA Town skills page: press Submit your skill above, then scroll down on that page to find the form. That page is the only place Phase 2 is submitted.",
   },
   {
     question: "Do I have to attend in person?",
     answer:
-      "No — taking part is fully online. But if you can, we recommend coming to MIT Media Lab on Saturday, July 11, 2026: the NANDA Summit runs 10:00 AM – 1:00 PM and the hackathon demos & awards run 2:00 PM – 5:00 PM. It's a great chance to meet the key leaders behind NANDA.",
+      "No, taking part is fully online. But if you can, we recommend coming to MIT Media Lab on Saturday, July 11, 2026: the NANDA Summit runs 10:00 AM to 1:00 PM and the hackathon demos and awards run 2:00 PM to 5:00 PM. It's a great chance to meet the key leaders behind NANDA.",
   },
   {
     question: "Who can join?",
     answer:
-      "Anyone — students, builders, researchers, and professionals. You can enter on your own or as a team.",
+      "Anyone: students, builders, researchers, and professionals. You can enter on your own or as a team.",
   },
 ];
 
@@ -230,7 +254,7 @@ export default function Home() {
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">OPEN NOW — 100% VIRTUAL · OPTIONAL IN-PERSON FINALE · MIT MEDIA LAB</p>
+            <p className="date-pill">OPEN NOW · 100% VIRTUAL · OPTIONAL IN-PERSON FINALE · MIT MEDIA LAB</p>
             <h1>
               NandaHack:
               <br />
@@ -240,13 +264,13 @@ export default function Home() {
             </h1>
             <p className="hero-sponsors-inline">HCLTech · MIT Media Lab</p>
             <p className="hero-copy">
-              <strong>Join fully online from anywhere — you never have to be in person.</strong> Two
-              phases to take part in the hackathon: first warm up on NANDA Town, then build a service
-              an AI agent can use on its own.
+              <strong>Join fully online from anywhere. You never have to be in person.</strong> Two
+              phases: first warm up on NANDA Town (Phase 1), then build a service and write a
+              SKILL.md for it (Phase 2).
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">
-                Apply to Participate in the Hackathon
+                Register to participate
               </a>
               <a className="btn btn-light btn-xl" href="#how">
                 Explore
@@ -271,8 +295,9 @@ export default function Home() {
         <div className="section-head">
           <h2>How it works</h2>
           <p className="section-subtitle">
-            Two phases to take part in the hackathon. Do the warm-up first, then build your own
-            service for the main event.
+            Register once with the form above (it is the only form), then do the two phases in
+            order: Phase 1 first, Phase 2 after. You submit each phase in the place named on its
+            card below.
           </p>
         </div>
 
@@ -309,6 +334,17 @@ export default function Home() {
                   </aside>
                 </div>
 
+                {step.checklist && (
+                  <div className="step-block step-checklist">
+                    <h4>Before you submit, check</h4>
+                    <ul className="step-judged">
+                      {step.checklist.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 <div className="step-foot">
                   <a className="btn btn-primary" href={step.href} target="_blank" rel="noopener noreferrer">
                     {step.cta}
@@ -319,6 +355,7 @@ export default function Home() {
                     </a>
                   )}
                 </div>
+                {step.note && <p className="step-note">{step.note}</p>}
               </article>
 
               {idx === 0 && (
@@ -388,7 +425,7 @@ export default function Home() {
           <article className="info-card connect-card">
             <h3>Join the Discord</h3>
             <p>
-              All hackathon communication lives here — updates, announcements, team formation, and
+              All hackathon communication lives here: updates, announcements, team formation, and
               technical questions. It&apos;s the place to get help and find teammates.
             </p>
             <a className="btn btn-primary" href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
@@ -398,8 +435,8 @@ export default function Home() {
           <article className="info-card connect-card">
             <h3>Watch the info webinar</h3>
             <p>
-              A walkthrough of the format, timeline, judging criteria, NANDA Town, and SKILL.md —
-              everything you need to make the most of NandaHack.
+              A walkthrough of the format, timeline, judging criteria, NANDA Town, and SKILL.md.
+              Everything you need to make the most of NandaHack.
             </p>
             <a className="btn btn-primary" href={WEBINAR_URL} target="_blank" rel="noopener noreferrer">
               Register for the webinar
@@ -462,18 +499,18 @@ export default function Home() {
         <div className="section-head">
           <h2>Join us on July 11</h2>
           <p className="section-subtitle">
-            Taking part is fully online, so attending in person is optional — but recommended. Come to MIT Media Lab
+            Taking part is fully online, so attending in person is optional but recommended. Come to MIT Media Lab
             on Saturday, July 11, 2026 to meet the key leaders behind NANDA.
           </p>
         </div>
         <div className="intro-grid">
           <article className="info-card">
             <h3>NANDA Summit</h3>
-            <p>10:00 AM – 1:00 PM · MIT Media Lab</p>
+            <p>10:00 AM to 1:00 PM · MIT Media Lab</p>
           </article>
           <article className="info-card">
             <h3>Hackathon demos &amp; awards</h3>
-            <p>2:00 PM – 5:00 PM · MIT Media Lab</p>
+            <p>2:00 PM to 5:00 PM · MIT Media Lab</p>
           </article>
         </div>
         <div className="attend-foot">

@@ -3,7 +3,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "About — NandaHack: Agentic AI Hackathon",
+  title: "About · NandaHack: Agentic AI Hackathon",
   description:
     "About NandaHack: Agentic AI Hackathon by HCLTech and MIT Media Lab. Build the practical infrastructure that AI agents actually need.",
 };
@@ -49,7 +49,7 @@ export default function About() {
           <h1>About NandaHack</h1>
           <p className="section-subtitle">
             A hands-on hackathon for people building the real infrastructure that enterprise AI agents
-            need — not just demos.
+            need, not just demos.
           </p>
         </div>
         <div className="intro-grid">
@@ -57,7 +57,7 @@ export default function About() {
             <h3>The big idea</h3>
             <p>
               AI agents are only as useful as the services they can reach. NandaHack is about building those
-              services — and improving the shared town that lets agents find and use them. It&apos;s part of{" "}
+              services, and improving the shared town that lets agents find and use them. It&apos;s part of{" "}
               <a className="text-link" href="https://projectnanda.org/#/" target="_blank" rel="noopener noreferrer">
                 Project NANDA
               </a>
@@ -112,7 +112,7 @@ export default function About() {
             See how it works
           </a>
           <a className="btn btn-light btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">
-            Apply to Attend
+            Register to participate
           </a>
         </div>
       </section>
