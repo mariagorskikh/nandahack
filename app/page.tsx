@@ -113,9 +113,9 @@ const steps: Step[] = [
   {
     num: "2",
     kicker: "Main event · 80%",
-    title: "Build a service agents can use on their own",
+    title: "Build a service + a SKILL.md that agents can use on their own",
     intro:
-      "The main event. Build any service, host it online, and write a SKILL.md so an AI agent can find it and use it on its own — no human help needed.",
+      "The main event. You build two things: (1) a service hosted online, and (2) a SKILL.md — a plain text file that tells an AI agent what your service does and how to call it. From your SKILL.md alone, an agent can find and use your service with no human help.",
     todo: [
       "Build any service you want and host it online so it stays reachable (Railway, Vercel, Render, Fly — your choice).",
       "Test your endpoints in a browser or with curl to make sure they work.",
