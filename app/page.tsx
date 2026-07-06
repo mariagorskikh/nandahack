@@ -225,7 +225,7 @@ export default function Home() {
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">OPEN NOW — IN-PERSON FINALE JULY 11, 2026 · MIT MEDIA LAB</p>
+            <p className="date-pill">OPEN NOW — 100% VIRTUAL · OPTIONAL IN-PERSON FINALE · MIT MEDIA LAB</p>
             <h1>
               NandaHack:
               <br />
@@ -235,7 +235,8 @@ export default function Home() {
             </h1>
             <p className="hero-sponsors-inline">HCLTech · MIT Media Lab</p>
             <p className="hero-copy">
-              Two steps. First, warm up on NANDA Town. Then build a service an AI agent can use on its own.
+              <strong>Join fully online from anywhere — you never have to be in person.</strong> Two
+              steps: first warm up on NANDA Town, then build a service an AI agent can use on its own.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">

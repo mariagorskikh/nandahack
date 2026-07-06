@@ -235,6 +235,11 @@ summary:focus-visible {
   line-height: 1.6;
 }
 
+.hero-copy strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
 .hero-actions {
   margin-top: 30px;
   display: flex;
