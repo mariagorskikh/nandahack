@@ -39,7 +39,7 @@ const resources: Resource[] = [
     kicker: "Source code",
     title: "NANDA Town on GitHub",
     description:
-      "Clone the repo, run it locally, and improve one of the 12 building blocks for the Step 1 warm-up.",
+      "Clone the repo, run it locally, and improve one of the 12 building blocks for the Phase 1 warm-up.",
     href: GITHUB_REPO,
     cta: "View the repo",
   },
@@ -106,7 +106,7 @@ const steps: Step[] = [
       "It's clearly documented.",
     ],
     href: GITHUB_REPO,
-    cta: "Open the repo on GitHub",
+    cta: "Ready to submit your PR?",
     secondaryHref: "/go/nanda-town",
     secondaryCta: "See how the town works",
   },
@@ -171,13 +171,13 @@ const mentors: Mentor[] = [
 
 const scoring = [
   {
-    title: "Step 1 — NANDA Town",
+    title: "Phase 1 — NANDA Town",
     weight: "20%",
     description:
       "A short warm-up. Scored on correct, well-tested code that fits NANDA Town's design and is clearly documented.",
   },
   {
-    title: "Step 2 — Service + SKILL.md",
+    title: "Phase 2 — Service + SKILL.md",
     weight: "80%",
     description:
       "The main event. Scored on usefulness, creativity, easy setup, and whether agents can use it from your SKILL.md alone.",
@@ -186,9 +186,14 @@ const scoring = [
 
 const faqs = [
   {
-    question: "Do I have to do both steps?",
+    question: "Do I have to do both phases?",
     answer:
-      "We recommend it. Step 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Step 2 — your own service with a SKILL.md — is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
+      "We recommend it. Phase 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Phase 2 — your own service with a SKILL.md — is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
+  },
+  {
+    question: "How do I start Phase 1?",
+    answer:
+      "Start Phase 1 by opening the NANDA Town repo on GitHub and following the README to clone it and get it running locally. Then pick one of the 12 building blocks, improve it or add a new one, add tests, and open a pull request named hackathon/your-name-topic. When you're ready to submit your PR, use the button on Phase 1 above.",
   },
   {
     question: "What is a SKILL.md?",
@@ -198,12 +203,12 @@ const faqs = [
   {
     question: "What is NANDA Town?",
     answer:
-      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Step 1 you improve one of those building blocks, so you learn how the town works before building your own service.",
+      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Phase 1 you improve one of those building blocks, so you learn how the town works before building your own service.",
   },
   {
     question: "Where do I submit?",
     answer:
-      "Step 1 is a pull request on the NANDA Town repo on GitHub. Step 2 you submit on the NANDA Town skills page. Use the button on each step above.",
+      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 you submit on the NANDA Town skills page. Use the button on each phase above.",
   },
   {
     question: "Do I have to attend in person?",
@@ -236,14 +241,15 @@ export default function Home() {
             <p className="hero-sponsors-inline">HCLTech · MIT Media Lab</p>
             <p className="hero-copy">
               <strong>Join fully online from anywhere — you never have to be in person.</strong> Two
-              steps: first warm up on NANDA Town, then build a service an AI agent can use on its own.
+              phases to take part in the hackathon: first warm up on NANDA Town, then build a service
+              an AI agent can use on its own.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">
-                Apply to Attend
+                Apply to Participate in the Hackathon
               </a>
               <a className="btn btn-light btn-xl" href="#how">
-                See how it works
+                Explore
               </a>
             </div>
           </div>
@@ -265,7 +271,8 @@ export default function Home() {
         <div className="section-head">
           <h2>How it works</h2>
           <p className="section-subtitle">
-            Two steps. Do the warm-up first, then build your own service for the main event.
+            Two phases to take part in the hackathon. Do the warm-up first, then build your own
+            service for the main event.
           </p>
         </div>
 

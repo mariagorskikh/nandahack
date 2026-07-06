@@ -19,7 +19,7 @@ export default function SiteHeader() {
         <a href="/#resources">Resources</a>
         <a href="/#faq">FAQ</a>
         <a className="btn btn-primary" href="https://forms.gle/HKCSitSChcFSqyzY8">
-          Apply to Attend
+          Apply to Participate
         </a>
       </nav>
     </header>
