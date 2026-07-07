@@ -184,9 +184,9 @@ const mentors: Mentor[] = [
   },
   {
     name: "Maria Gorskikh",
-    role: "Core Contributor, Project NANDA · MIT",
+    role: "Core Contributor, Project NANDA · MIT · CEO & Co-Founder, Maritime",
     photo: "/mentors/maria-gorskikh.jpg",
-    bio: "Maria is a core contributor to Project NANDA at MIT, where she develops protocols and infrastructure for the emerging agentic web — the Internet of AI Agents. A founder and researcher working at the intersection of AI infrastructure and entrepreneurship.",
+    bio: "Maria is a core contributor to Project NANDA at MIT, where she develops protocols and infrastructure for the emerging agentic web — the Internet of AI Agents. She is also CEO and co-founder of Maritime, a cloud hosting platform for AI agents.",
   },
   {
     name: "Nikolay Vyahhi",
