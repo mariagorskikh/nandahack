@@ -176,6 +176,24 @@ const mentors: Mentor[] = [
     photo: "/mentors/gary-kuvich.png",
     bio: "Gary is a Senior Solution Director in the HCLTech Evolve AI Practice, with many years of experience across both industry and academia and a track record of successful generative and agentic AI implementations across diverse customer platforms.",
   },
+  {
+    name: "Prof. Ramesh Raskar",
+    role: "Associate Professor, MIT Media Lab · Director, Project NANDA",
+    photo: "/mentors/ramesh-raskar.jpg",
+    bio: "Ramesh is an Associate Professor at the MIT Media Lab, where he directs the Camera Culture research group and leads NANDA@MIT — creating the building blocks for the Internet of AI Agents. He holds 130+ patents in computer vision, computational health, sensors, and imaging, and received the Lemelson-MIT Prize. He is also founder and chairman of the PathCheck Foundation, a nonprofit launched at MIT for pandemic response.",
+  },
+  {
+    name: "Maria Gorskikh",
+    role: "Core Contributor, Project NANDA · MIT",
+    photo: "/mentors/maria-gorskikh.jpg",
+    bio: "Maria is a core contributor to Project NANDA at MIT, where she develops protocols and infrastructure for the emerging agentic web — the Internet of AI Agents. A founder and researcher working at the intersection of AI infrastructure and entrepreneurship.",
+  },
+  {
+    name: "Nikolay Vyahhi",
+    role: "Founder, Hyperskill · Lecturer, MIT",
+    photo: "/mentors/nikolay-vyahhi.jpg",
+    bio: "Nikolay is the founder of Hyperskill, a project-based platform for learning software engineering, and an AI educator and MIT lecturer who has built and deployed LLM systems at scale in production. He previously co-founded Stepik, Rosalind, and the Bioinformatics Institute, and worked with JetBrains on JetBrains Academy.",
+  },
 ];
 
 const scoring = [
@@ -270,7 +288,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary btn-xl" href="https://forms.gle/HKCSitSChcFSqyzY8">
-                Register to participate
+                Register for the Hackathon
               </a>
               <a className="btn btn-light btn-xl" href="#how">
                 Explore
@@ -293,7 +311,7 @@ export default function Home() {
 
       <section id="how" className="section">
         <div className="section-head">
-          <h2>How it works</h2>
+          <h2>Hackathon Steps</h2>
           <p className="section-subtitle">
             Register once with the form above (it is the only form), then do the two phases in
             order: Phase 1 first, Phase 2 after. You submit each phase in the place named on its
@@ -449,7 +467,8 @@ export default function Home() {
         <div className="section-head">
           <h2>Meet your mentors</h2>
           <p className="section-subtitle">
-            Guidance from HCLTech leaders in Responsible AI, enterprise adoption, and secure AI architecture.
+            Guidance from the MIT Project NANDA team and HCLTech leaders in Responsible AI,
+            enterprise adoption, and secure AI architecture.
           </p>
         </div>
         <div className="mentor-grid">
