@@ -16,6 +16,7 @@ export default function SiteHeader() {
 
       <nav className="nav-links" aria-label="Main navigation">
         <a href="/about">About</a>
+        <a href="/#deadlines">Deadlines</a>
         <a href="/#resources">Resources</a>
         <a href="/#faq">FAQ</a>
         <a className="btn btn-primary" href="https://forms.gle/HKCSitSChcFSqyzY8">
