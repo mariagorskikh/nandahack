@@ -10,7 +10,8 @@ const LUMA_URL = "https://luma.com/6q9q00sm";
 const DISCORD_URL = "https://discord.gg/xHAQNcF3m2";
 const REGISTER_FORM_URL = "https://forms.gle/HKCSitSChcFSqyzY8";
 const FINAL_FORM_URL = "https://forms.gle/JVNkqKLh9MS4FYY2A";
-const SESSION_JULY8_URL = "https://luma.com/p2kg2ck0";
+const SESSION_JULY8_RECORDING_URL =
+  "https://drive.google.com/file/d/1cXjsm7TzP-FgF5-gf_CtmJPsK7ieckuu/view?usp=sharing";
 const SESSION_JULY9_URL = "https://luma.com/3lojrnve";
 
 type Deadline = {
@@ -41,7 +42,7 @@ const deadlines: Deadline[] = [
       "You can modify and continue working on your submission for Phase 2 only until this time. Your required video demo of Phase 2 is also due by this time at the latest.",
   },
   {
-    when: "Sunday, July 12, 2026 · 2:00 PM ET",
+    when: "Saturday, July 11, 2026 · 2:00 PM ET",
     title: "Final submission form closes",
     detail:
       "The final Google form must be fully completed before this time. Resubmit it even if you have completed it already: there are new required fields for your final submission. Share your Phase 2 video demo in this form.",
@@ -97,13 +98,15 @@ type LumaEvent = {
   title: string;
   date: string;
   href: string;
+  cta?: string;
 };
 
 const events: LumaEvent[] = [
   {
     title: "NandaHack Last Chance Info Session #1",
-    date: "Wed, July 8, 2026 · 9:30 PM ET · Virtual",
-    href: SESSION_JULY8_URL,
+    date: "Wed, July 8, 2026 · Virtual · Finished, recording available",
+    href: SESSION_JULY8_RECORDING_URL,
+    cta: "Watch the recording",
   },
   {
     title: "NandaHack Last Chance Info Session #2",
@@ -272,12 +275,12 @@ const faqs = [
   {
     question: "How many forms are there?",
     answer:
-      "Two. The participation form is where you register once; it does not submit Phase 1 or Phase 2. Phase 1 is submitted as a pull request on GitHub, and Phase 2 is submitted on the NANDA Town skills page. Separately, the final Google form must be fully completed before Sunday, July 12 at 2:00 PM ET. Resubmit that final form even if you have completed it already, because there are new required fields for your final submission, and share your Phase 2 video demo in it.",
+      "Two. The participation form is where you register once; it does not submit Phase 1 or Phase 2. Phase 1 is submitted as a pull request on GitHub, and Phase 2 is submitted on the NANDA Town skills page. Separately, the final Google form must be fully completed before Saturday, July 11 at 2:00 PM ET. Resubmit that final form even if you have completed it already, because there are new required fields for your final submission, and share your Phase 2 video demo in it.",
   },
   {
     question: "What are the deadlines?",
     answer:
-      "The initial submission deadline is Friday, July 10, 2026 at 12:00 PM (noon) Eastern Time. It covers both phases and applies wherever you are building from. All Phase 1 (Nanda Town PR) submissions are final at that time. You can modify and continue working on your submission for Phase 2 only until Saturday, July 11 at 2:00 PM ET, which is also when your required video demo is due at the latest. The final Google form must be fully completed before Sunday, July 12 at 2:00 PM ET.",
+      "The initial submission deadline is Friday, July 10, 2026 at 12:00 PM (noon) Eastern Time. It covers both phases and applies wherever you are building from. All Phase 1 (Nanda Town PR) submissions are final at that time. You can modify and continue working on your submission for Phase 2 only until Saturday, July 11 at 2:00 PM ET, which is also when your required video demo is due at the latest. The final Google form must also be fully completed before Saturday, July 11 at 2:00 PM ET.",
   },
   {
     question: "Is a video demo required?",
@@ -312,7 +315,7 @@ const faqs = [
   {
     question: "Where do I submit?",
     answer:
-      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 is submitted on the NANDA Town skills page: press Submit your skill above, then scroll down on that page to find the form. That page is the only place Phase 2 is submitted. Then complete the final Google form (with your video demo) before Sunday, July 12 at 2:00 PM ET.",
+      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 is submitted on the NANDA Town skills page: press Submit your skill above, then scroll down on that page to find the form. That page is the only place Phase 2 is submitted. Then complete the final Google form (with your video demo) before Saturday, July 11 at 2:00 PM ET.",
   },
   {
     question: "What are the fields on the Phase 2 submission form?",
@@ -428,7 +431,7 @@ export default function Home() {
           <p className="section-subtitle">
             There are three places you interact with: one registration form, one pull request, and
             one service submission. That is the whole flow, plus one final Google form to complete
-            before Sunday, July 12 at 2:00 PM ET. Register once with the form above, then do the
+            before Saturday, July 11 at 2:00 PM ET. Register once with the form above, then do the
             two phases in order: Phase 1 first, Phase 2 after. You submit each phase in the place
             named on its card below.
           </p>
@@ -539,7 +542,7 @@ export default function Home() {
                 <p className="resource-event-date">{event.date}</p>
               </div>
               <a className="btn btn-light" href={event.href} target="_blank" rel="noopener noreferrer">
-                RSVP on Luma
+                {event.cta ?? "RSVP on Luma"}
               </a>
             </div>
           ))}
@@ -569,15 +572,16 @@ export default function Home() {
           <article className="info-card connect-card">
             <h3>Last chance info sessions</h3>
             <p>
-              Two final info sessions before submissions close: Wednesday, July 8 at 9:30 PM ET and
-              Thursday, July 9 at 1:30 PM ET, both virtual. A walkthrough of the format, deadlines,
-              judging criteria, NANDA Town, and SKILL.md.
+              Two final info sessions before submissions close, both virtual: a walkthrough of the
+              format, deadlines, judging criteria, NANDA Town, and SKILL.md. The July 8 session has
+              finished and the recording is available. The last session is Thursday, July 9 at
+              1:30 PM ET.
             </p>
-            <a className="btn btn-primary" href={SESSION_JULY8_URL} target="_blank" rel="noopener noreferrer">
-              RSVP for July 8, 9:30 PM ET
-            </a>
-            <a className="btn btn-light" href={SESSION_JULY9_URL} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn-primary" href={SESSION_JULY9_URL} target="_blank" rel="noopener noreferrer">
               RSVP for July 9, 1:30 PM ET
+            </a>
+            <a className="btn btn-light" href={SESSION_JULY8_RECORDING_URL} target="_blank" rel="noopener noreferrer">
+              Watch the July 8 recording
             </a>
           </article>
         </div>
