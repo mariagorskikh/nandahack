@@ -62,6 +62,26 @@ summary:focus-visible {
   border-bottom-color: var(--accent);
 }
 
+/* Announcement bar */
+.announce-bar {
+  background: var(--text);
+  padding: 10px 24px;
+  text-align: center;
+}
+
+.announce-bar p {
+  max-width: var(--container);
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.announce-bar strong {
+  color: #fff;
+  font-weight: 700;
+}
+
 /* Nav */
 .top-nav {
   max-width: var(--container);

@@ -10,9 +10,8 @@ const LUMA_URL = "https://luma.com/6q9q00sm";
 const DISCORD_URL = "https://discord.gg/xHAQNcF3m2";
 const REGISTER_FORM_URL = "https://forms.gle/HKCSitSChcFSqyzY8";
 const FINAL_FORM_URL = "https://forms.gle/JVNkqKLh9MS4FYY2A";
-const SESSION_JULY8_RECORDING_URL =
+const INFO_SESSION_RECORDING_URL =
   "https://drive.google.com/file/d/1cXjsm7TzP-FgF5-gf_CtmJPsK7ieckuu/view?usp=sharing";
-const SESSION_JULY9_URL = "https://luma.com/3lojrnve";
 
 type Deadline = {
   when: string;
@@ -98,21 +97,9 @@ type LumaEvent = {
   title: string;
   date: string;
   href: string;
-  cta?: string;
 };
 
 const events: LumaEvent[] = [
-  {
-    title: "NandaHack Last Chance Info Session #1",
-    date: "Wed, July 8, 2026 · Virtual · Finished, recording available",
-    href: SESSION_JULY8_RECORDING_URL,
-    cta: "Watch the recording",
-  },
-  {
-    title: "NandaHack Last Chance Info Session #2",
-    date: "Thu, July 9, 2026 · 1:30 PM ET · Virtual",
-    href: SESSION_JULY9_URL,
-  },
   {
     title: "Nanda Summit + NandaHack at MIT",
     date: "Sat, July 11, 2026 · 9:30 AM to 5:00 PM ET · MIT Media Lab · Optional, RSVP required",
@@ -542,7 +529,7 @@ export default function Home() {
                 <p className="resource-event-date">{event.date}</p>
               </div>
               <a className="btn btn-light" href={event.href} target="_blank" rel="noopener noreferrer">
-                {event.cta ?? "RSVP on Luma"}
+                RSVP on Luma
               </a>
             </div>
           ))}
@@ -553,8 +540,8 @@ export default function Home() {
         <div className="section-head">
           <h2>Stay connected</h2>
           <p className="section-subtitle">
-            Join the Discord for everything happening during the hackathon, and catch one of the two
-            last chance info sessions to get the full walkthrough before you submit.
+            Join the Discord for everything happening during the hackathon, and watch an info
+            session recording to get the full walkthrough before you submit.
           </p>
         </div>
         <div className="intro-grid">
@@ -570,18 +557,14 @@ export default function Home() {
             </a>
           </article>
           <article className="info-card connect-card">
-            <h3>Last chance info sessions</h3>
+            <h3>Info session recording</h3>
             <p>
-              Two final info sessions before submissions close, both virtual: a walkthrough of the
-              format, deadlines, judging criteria, NANDA Town, and SKILL.md. The July 8 session has
-              finished and the recording is available. The last session is Thursday, July 9 at
-              1:30 PM ET.
+              The last chance info sessions have finished. Watch a recording of one of the info
+              sessions for the full walkthrough of the format, deadlines, judging criteria, NANDA
+              Town, and SKILL.md before you submit.
             </p>
-            <a className="btn btn-primary" href={SESSION_JULY9_URL} target="_blank" rel="noopener noreferrer">
-              RSVP for July 9, 1:30 PM ET
-            </a>
-            <a className="btn btn-light" href={SESSION_JULY8_RECORDING_URL} target="_blank" rel="noopener noreferrer">
-              Watch the July 8 recording
+            <a className="btn btn-primary" href={INFO_SESSION_RECORDING_URL} target="_blank" rel="noopener noreferrer">
+              Watch the recording
             </a>
           </article>
         </div>

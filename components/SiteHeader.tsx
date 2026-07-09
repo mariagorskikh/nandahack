@@ -2,7 +2,16 @@ import Image from "next/image";
 
 export default function SiteHeader() {
   return (
-    <header className="top-nav">
+    <>
+      <div className="announce-bar">
+        <p>
+          <strong>NandaHack is on.</strong> <strong>Jul 10, 12 PM ET</strong>{" "}
+          <span>- initial SkillMD + Phase 1 PRs due (registers you).</span>{" "}
+          <strong>Jul 11, 2 PM ET</strong>{" "}
+          <span>- SkillMDs final + demo video (required for judging, not scored).</span>
+        </p>
+      </div>
+      <header className="top-nav">
       <a href="/" className="mit-lockup" aria-label="MIT home">
         <Image
           src="/mit-logo.svg"
@@ -22,7 +31,8 @@ export default function SiteHeader() {
         <a className="btn btn-primary" href="https://forms.gle/HKCSitSChcFSqyzY8">
           Register
         </a>
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </>
   );
 }
