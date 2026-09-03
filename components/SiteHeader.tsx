@@ -1,14 +1,18 @@
 import Image from "next/image";
 
+const RECAP_URL =
+  "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/";
+
 export default function SiteHeader() {
   return (
     <>
       <div className="announce-bar">
         <p>
-          <strong>NandaHack is on.</strong> <strong>Jul 10, 12 PM ET</strong>{" "}
-          <span>- initial SkillMD + Phase 1 PRs due (registers you).</span>{" "}
-          <strong>Jul 11, 2 PM ET</strong>{" "}
-          <span>- SkillMDs final + demo video (required for judging, not scored).</span>
+          <strong>NandaHack has concluded.</strong>{" "}
+          <span>June 13 to July 11, 2026. 400+ registrants, 230+ submissions, 164 pull requests.</span>{" "}
+          <strong>
+            <a href="/#results">See the winners</a>
+          </strong>
         </p>
       </div>
       <header className="top-nav">
@@ -25,11 +29,11 @@ export default function SiteHeader() {
 
       <nav className="nav-links" aria-label="Main navigation">
         <a href="/about">About</a>
-        <a href="/#deadlines">Deadlines</a>
+        <a href="/#results">Results</a>
         <a href="/#resources">Resources</a>
         <a href="/#faq">FAQ</a>
-        <a className="btn btn-primary" href="https://forms.gle/HKCSitSChcFSqyzY8">
-          Register
+        <a className="btn btn-primary" href={RECAP_URL} target="_blank" rel="noopener noreferrer">
+          Read the recap
         </a>
         </nav>
       </header>

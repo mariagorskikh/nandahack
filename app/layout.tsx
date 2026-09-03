@@ -18,18 +18,18 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "NandaHack: Agentic AI Hackathon · HCLTech and MIT Media Lab",
   description:
-    "NandaHack: Agentic AI Hackathon by HCLTech and MIT Media Lab. Build systems, tools, and layers that fix real bottlenecks in how AI agents are deployed, coordinated, and scaled.",
+    "NandaHack: Agentic AI Hackathon by HCLTech and MIT Media Lab, June 13 to July 11, 2026. 400+ registrants built services and SKILL.md files for the agentic web. See the winners and results.",
   openGraph: {
     title: "NandaHack: Agentic AI Hackathon",
     description:
-      "HCLTech and MIT Media Lab. Build what the AI agent ecosystem is missing.",
+      "HCLTech and MIT Media Lab. The hackathon has concluded: see the winners and results.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "NandaHack: Agentic AI Hackathon",
     description:
-      "HCLTech and MIT Media Lab. Build what the AI agent ecosystem is missing.",
+      "HCLTech and MIT Media Lab. The hackathon has concluded: see the winners and results.",
   },
 };
 

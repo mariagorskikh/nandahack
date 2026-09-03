@@ -8,46 +8,80 @@ const GUIDE_URL = "https://dhve.github.io/nandahack-guide/";
 const LUMA_CALENDAR = "https://luma.com/nanda";
 const LUMA_URL = "https://luma.com/6q9q00sm";
 const DISCORD_URL = "https://discord.gg/xHAQNcF3m2";
-const REGISTER_FORM_URL = "https://forms.gle/HKCSitSChcFSqyzY8";
-const FINAL_FORM_URL = "https://forms.gle/JVNkqKLh9MS4FYY2A";
+const RECAP_URL =
+  "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/";
+const HACKATHON_PRS_URL = "https://nandatown.projectnanda.org/hackathon";
+const SKILLS_URL = "/go/submit";
 const INFO_SESSION_RECORDING_URL =
   "https://drive.google.com/file/d/1cXjsm7TzP-FgF5-gf_CtmJPsK7ieckuu/view?usp=sharing";
 
-type Deadline = {
-  when: string;
-  title: string;
+type Stat = {
+  value: string;
+  label: string;
   detail: string;
-  href?: string;
-  cta?: string;
 };
 
-const deadlines: Deadline[] = [
+const stats: Stat[] = [
   {
-    when: "Friday, July 10, 2026 · 12:00 PM (noon) ET",
-    title: "Initial submission, both phases",
-    detail:
-      "The initial submission deadline. It covers both phases and applies wherever you are building from. All Phase 1 (NANDA Town PR) submissions are final at this time.",
+    value: "400+",
+    label: "Registrants",
+    detail: "Builders, students, and researchers joined online and in person from around the world.",
   },
   {
-    when: "Saturday, July 11, 2026 · 9:30 AM to 12:00 PM ET",
-    title: "Judging morning",
-    detail:
-      "Judging runs Saturday morning to pick the top 10. Keep your service up through Saturday: if it is down when the judge's agent calls, the agent fails.",
+    value: "230+",
+    label: "Unique submissions",
+    detail: "Services with a SKILL.md, submitted on the NANDA Town skills page.",
   },
   {
-    when: "Saturday, July 11, 2026 · 2:00 PM ET",
-    title: "Phase 2 edits close, video demo due",
-    detail:
-      "You can modify and continue working on your submission for Phase 2 only until this time. Your required video demo of Phase 2 is also due by this time at the latest.",
+    value: "125+",
+    label: "Complete submissions",
+    detail: "Entries that finished both phases and were reviewed in full by the organizing team.",
   },
   {
-    when: "Saturday, July 11, 2026 · 2:00 PM ET",
-    title: "Final submission form closes",
-    detail:
-      "The final Google form must be fully completed before this time. Resubmit it even if you have completed it already: there are new required fields for your final submission. Share your Phase 2 video demo in this form.",
-    href: FINAL_FORM_URL,
-    cta: "Complete the final form",
+    value: "164",
+    label: "Pull requests",
+    detail: "Contributions to the NANDA Town repository on GitHub during the Phase 1 warm-up.",
   },
+];
+
+type Winner = {
+  place: string;
+  title: string;
+  detail: string;
+};
+
+const winners: Winner[] = [
+  {
+    place: "First prize",
+    title: "AgentPress: The Autonomous Newsroom of the Agent Economy",
+    detail:
+      "An agent-to-agent news economy. Agents register for free starter credits and file news signals. An autonomous editor named Herald scores them on a deterministic 8-factor rubric and compiles paid editions, and contributors earn an exact 80% revenue share every time their edition is read.",
+  },
+  {
+    place: "Second prize",
+    title: "2036 Agentic Town: AI Constitution (Civil Ledger)",
+    detail:
+      "A constitution and civil ledger for an agentic town, exploring how autonomous agents can share rules, records, and civic services.",
+  },
+  {
+    place: "Third prize",
+    title: "Litmus: secure NANDA",
+    detail:
+      "A NANDA Town agent-safety honeypot. On its face it is a web-reader tool; underneath, it tests how agents behave when a service is not what it seems.",
+  },
+];
+
+const topTen = [
+  "AgentPress",
+  "2036 Agentic Town: AI Constitution (Civil Ledger)",
+  "Litmus",
+  "AgentHall",
+  "Pareto Multi-Attribute Negotiation",
+  "Sever Trust Plane",
+  "CipherWatch",
+  "LEX AUTOMATA",
+  "RingGuard",
+  "SkillProbe",
 ];
 
 type Resource = {
@@ -63,7 +97,7 @@ const resources: Resource[] = [
     kicker: "Live app",
     title: "NANDA Town",
     description:
-      "The open sandbox where AI agents talk, trust, pay, and coordinate. Explore it and run experiments.",
+      "The open sandbox where AI agents talk, trust, pay, and coordinate. It stays up after the hackathon, so explore it and run experiments.",
     href: NANDA_TOWN_URL,
     cta: "Explore NANDA Town",
   },
@@ -71,7 +105,7 @@ const resources: Resource[] = [
     kicker: "Quickstart",
     title: "NandaHack Guide",
     description:
-      "An interactive walkthrough for your first NANDA Town pull request, writing a SKILL.md, and a live demo.",
+      "The interactive walkthrough participants used for their first NANDA Town pull request, writing a SKILL.md, and a live demo.",
     href: GUIDE_URL,
     cta: "Read the guide",
   },
@@ -79,7 +113,7 @@ const resources: Resource[] = [
     kicker: "Source code",
     title: "NANDA Town on GitHub",
     description:
-      "Clone the repo, run it locally, and improve one of the 12 building blocks for the Phase 1 warm-up.",
+      "The repository that received 164 pull requests during Phase 1. Clone it, run it locally, and keep contributing.",
     href: GITHUB_REPO,
     cta: "View the repo",
   },
@@ -87,7 +121,7 @@ const resources: Resource[] = [
     kicker: "Ask questions",
     title: "Nanda Discord",
     description:
-      "The Project NANDA community server. Get help, find teammates, and ask anything about the hackathon.",
+      "The Project NANDA community server. Keep in touch with participants, mentors, and the team, and hear about what comes next.",
     href: DISCORD_URL,
     cta: "Join the Discord",
   },
@@ -101,8 +135,8 @@ type LumaEvent = {
 
 const events: LumaEvent[] = [
   {
-    title: "Nanda Summit + NandaHack at MIT",
-    date: "Sat, July 11, 2026 · 9:30 AM to 5:00 PM ET · MIT Media Lab · Optional, RSVP required",
+    title: "Nanda Summit + NandaHack finale at MIT",
+    date: "Sat, July 11, 2026 · 9:30 AM to 5:00 PM ET · MIT Media Lab · Concluded",
     href: LUMA_URL,
   },
 ];
@@ -128,59 +162,45 @@ const steps: Step[] = [
     kicker: "Phase 1 · Warm-up · 20%",
     title: "Improve NANDA Town",
     intro:
-      "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate, across 12 building blocks. Warm up by making one of them better.",
+      "NANDA Town is an open-source sandbox where AI agents test how they talk, trust, pay, and coordinate, across 12 building blocks. Participants warmed up by making one of them better.",
     todo: [
-      "Clone the repo and get it running on your computer. The README has the exact commands.",
-      "Pick one of the 12 building blocks. Improve it or add a new one.",
-      "Add a test. A good test fails without your change and passes with it.",
-      "Run make ci-local before you push. This is the same check the repo runs on your PR.",
-      "Create a branch named hackathon/your-name-topic that describes the real work. Good: hackathon/faster-auction-validator. Not okay: hackathon/test1. This naming rule is how your PR gets picked up, so it is required.",
-      "Push the branch and open a pull request on the repo. Your PR appears automatically at nandatown.projectnanda.org/hackathon. The PR is your entry: there is nothing else to file.",
-      "A judge replies as soon as they can, so do not wait until the last minute. You can revise and resubmit as many times as you like, but if you wait until the deadline and your code does not work properly, the PR has to be closed and you cannot proceed with the hackathon, no matter how good the idea was.",
+      "Cloned the repo and got it running locally, following the README.",
+      "Picked one of the 12 building blocks and improved it or added a new one.",
+      "Added a test that fails without the change and passes with it, then ran make ci-local before pushing.",
+      "Pushed a branch named hackathon/your-name-topic and opened a pull request. The PR was the entry, and it appeared automatically on the NANDA Town hackathon page.",
+      "Judges replied on each PR, and participants revised and resubmitted until the Friday, July 10 deadline. Around 164 pull requests came in.",
     ],
     judged: [
       "It works correctly and is well tested.",
       "It fits how NANDA Town is already built.",
-      "It's clearly documented.",
+      "It is clearly documented.",
     ],
-    href: `${GITHUB_REPO}#readme`,
-    cta: "Start Phase 1: open the README",
+    href: HACKATHON_PRS_URL,
+    cta: "Browse the Phase 1 pull requests",
     secondaryHref: "/go/nanda-town",
     secondaryCta: "Explore NANDA Town",
-    note: "All Phase 1 (Nanda Town PR) submissions are final on Friday, July 10, 2026 at 12:00 PM (noon) Eastern Time.",
   },
   {
     num: "2",
     kicker: "Phase 2 · Main event · 80%",
     title: "Build a service, then write a SKILL.md for it",
     intro:
-      "The main event. You are building one web service plus a SKILL.md, a plain text file that tells an AI agent what your service does and how to call it. You are not building an agent. Judges run a stock agent that gets only your SKILL.md and must use your service with no other help. Build for that test.",
+      "The main event. Each team built one web service plus a SKILL.md, a plain text file that tells an AI agent what the service does and how to call it. Nobody built an agent. Judges ran a stock agent that got only the SKILL.md and had to use the service with no other help.",
     todo: [
-      "Build one web service and host it so it stays up on its own. Use Railway, Vercel, Render, or Fly: all have free tiers. Do not use ngrok or any tunnel to your laptop. The registry and judges call your URL after your laptop is closed.",
-      "Test every endpoint on the public URL, not localhost, in a browser or with curl. Free tiers sleep when idle, so the first request after a quiet period can take 30 to 60 seconds. Send one warm-up request, then test.",
-      "Write the SKILL.md with these sections: a title line (# Your Service Name) and one sentence on what it does; the base URL on its own line; each endpoint with its method and path (for example GET /weather?city={city}), one sentence of description, one example curl call, and one example response; and numbered, plain-language steps on how the agent should use it.",
-      "Keep it concrete. One real curl call and its real response is worth more than a paragraph, and one endpoint that clearly works beats five that half work. Use clear, boring, precise, technical language and do not be vague at all.",
-      "Host the SKILL.md at a raw GitHub URL, or serve it from your app at /skill.md. You can paste the text into the form instead, but pasted entries do not get the reachability badge, so a hosted link or repo is better.",
-      "Submit on the NANDA Town skills page. Scroll to the form, fill in the fields, and press Submit SkillMD.",
-      "Record a video demo of your Phase 2 submission and share it in the final Google form by Saturday, July 11 at 2:00 PM ET. The video will not impact your score, but it is required to fully complete your submission, and if you are selected for the top 10 teams we need a video to show to people.",
+      "Built one web service and hosted it on a platform that stayed up on its own, with no tunnels to a laptop.",
+      "Tested every endpoint on the public URL, since the registry and the judge's agent called it directly.",
+      "Wrote a SKILL.md with a title, the base URL, every endpoint with an example call and response, and plain-language steps for the agent.",
+      "Submitted on the NANDA Town skills page, where the registry checked each link and showed a reachability badge on the card.",
+      "Recorded a video demo and shared it in the final form by Saturday, July 11 at 2:00 PM ET. More than 230 unique submissions came in, and over 125 were complete.",
     ],
     judged: [
       "Useful: it does something agents really need.",
-      "Creative: it's a fresh idea.",
+      "Creative: it is a fresh idea.",
       "Easy to set up: little effort to a working call.",
-      "Agents succeed using only your SKILL.md.",
+      "Agents succeed using only the SKILL.md.",
     ],
-    checklist: [
-      "Registered with the participation form.",
-      "Phase 1 PR open on projnanda/nandatown from a hackathon/your-name-topic branch.",
-      "Service hosted online and answering on its public URL.",
-      "SKILL.md names the service, base URL, and every endpoint, each with one example call and response.",
-      "Entry shows on the NANDA Town skills page with your GitHub username filled in.",
-      'Card badge reads "link responded."',
-    ],
-    href: "/go/submit",
-    cta: "Submit your skill",
-    note: "This button opens the NANDA Town skills page. Submit your skill there, on that page. Scroll down to find the form. Initial submissions for both phases are due Friday, July 10 at 12:00 PM (noon) ET, and you can keep modifying Phase 2 only until Saturday, July 11 at 2:00 PM ET.",
+    href: SKILLS_URL,
+    cta: "Browse the submitted skills",
   },
 ];
 
@@ -236,6 +256,12 @@ const mentors: Mentor[] = [
     photo: "/mentors/nikolay-vyahhi.jpg",
     bio: "Nikolay is the founder of Hyperskill, a project-based platform for learning software engineering, and an AI educator and MIT lecturer who has built and deployed LLM systems at scale in production. He previously co-founded Stepik, Rosalind, and the Bioinformatics Institute, and worked with JetBrains on JetBrains Academy.",
   },
+  {
+    name: "Vedh Krishnan",
+    role: "Research and Development Consultant, MIT Media Lab · NandaHack Coordinator",
+    photo: "/mentors/vedh-krishnan.jpg",
+    bio: "Vedh provides operational, administrative, and research support for NANDA and the Camera Culture group at the MIT Media Lab, working directly with Prof. Ramesh Raskar and postdoctoral researchers on initiatives centered on the agentic web, decentralized AI, and autonomous AI systems. He helps architect and lead the R&D behind NANDA Town, a test rig for protocols and services headed for the open agentic web (nandatown.projectnanda.org and nanda.town), and is a code contributor and tester on NANDA Index (nandaindex.org) and Host39 (host39.org).",
+  },
 ];
 
 const scoring = [
@@ -243,101 +269,66 @@ const scoring = [
     title: "Phase 1: NANDA Town",
     weight: "20%",
     description:
-      "A short warm-up. Scored on correct, well-tested code that fits NANDA Town's design and is clearly documented.",
+      "A short warm-up. Scored on correct, well-tested code that fit NANDA Town's design and was clearly documented.",
   },
   {
     title: "Phase 2: Service + SKILL.md",
     weight: "80%",
     description:
-      "The main event. Scored on usefulness, creativity, easy setup, and whether agents can use it from your SKILL.md alone.",
+      "The main event. Scored on usefulness, creativity, easy setup, and whether agents could use it from the SKILL.md alone.",
   },
 ];
 
 const faqs = [
   {
-    question: "What order do I do things in?",
+    question: "Is NandaHack still open?",
     answer:
-      "Register with the participation form, do Phase 1, then do Phase 2 and submit your skill. Phase 1 is the warm-up: improve NANDA Town and open a pull request. Phase 2 is the main event: build a service, write a SKILL.md for it, and submit it on the NANDA Town skills page.",
+      "No. NandaHack ran from June 13 through July 11, 2026 and has concluded. Submissions closed on Saturday, July 11 at 2:00 PM ET, and the demos and awards took place that afternoon at the MIT Media Lab.",
   },
   {
-    question: "How many forms are there?",
+    question: "Who won?",
     answer:
-      "Two. The participation form is where you register once; it does not submit Phase 1 or Phase 2. Phase 1 is submitted as a pull request on GitHub, and Phase 2 is submitted on the NANDA Town skills page. Separately, the final Google form must be fully completed before Saturday, July 11 at 2:00 PM ET. Resubmit that final form even if you have completed it already, because there are new required fields for your final submission, and share your Phase 2 video demo in it.",
+      "First prize went to AgentPress, an autonomous newsroom for the agent economy. Second prize went to 2036 Agentic Town: AI Constitution (Civil Ledger). Third prize went to Litmus, a NANDA Town agent-safety honeypot. The full top 10 is listed in the results section above.",
   },
   {
-    question: "What are the deadlines?",
+    question: "How big was the hackathon?",
     answer:
-      "The initial submission deadline is Friday, July 10, 2026 at 12:00 PM (noon) Eastern Time. It covers both phases and applies wherever you are building from. All Phase 1 (Nanda Town PR) submissions are final at that time. You can modify and continue working on your submission for Phase 2 only until Saturday, July 11 at 2:00 PM ET, which is also when your required video demo is due at the latest. The final Google form must also be fully completed before Saturday, July 11 at 2:00 PM ET.",
+      "More than 400 people registered. Participants sent in more than 230 unique submissions, of which over 125 were complete and reviewed in full by the organizing team. In parallel, contributors opened around 164 pull requests on the NANDA Town repository.",
   },
   {
-    question: "Is a video demo required?",
+    question: "How was it scored?",
     answer:
-      "Yes. A video demo of your Phase 2 submission is required, and you share it in the final Google form. The video will not impact your score, but it is a requirement to fully complete your submission, and if you get selected for the top 10 teams we need a video to show to people. It is due at the latest Saturday, July 11, 2026 at 2:00 PM ET.",
+      "Phase 1, the NANDA Town warm-up, was worth 20% and was scored on correct, well-tested code that fits the existing design and is clearly documented. Phase 2, a service plus a SKILL.md, was worth 80% and was scored on usefulness, creativity, ease of setup, and whether a stock agent could use the service from the SKILL.md alone.",
   },
   {
-    question: "Do I have to do both phases?",
+    question: "Where can I see the submissions?",
     answer:
-      "We recommend it. Phase 1 is a short warm-up worth 20% that teaches you how NANDA Town works. Phase 2, your own service with a SKILL.md, is the main event, worth 80%. You can enter just one, but doing both gives you the best score.",
-  },
-  {
-    question: "How do I start Phase 1?",
-    answer:
-      "Press the Start Phase 1 button above. It opens the NANDA Town README, which has the exact commands to clone the repo and run it locally. Then pick one of the 12 building blocks, improve it or add a new one, add tests, and open a pull request named hackathon/your-name-topic.",
-  },
-  {
-    question: "Am I building an agent?",
-    answer:
-      "No. In Phase 2 you build a service and write a SKILL.md that describes it. Agents that already exist read your SKILL.md and call your service. You never write agent code.",
-  },
-  {
-    question: "What is a SKILL.md?",
-    answer:
-      "It's a plain Markdown file that teaches an AI agent how to use your service: what it does, its web address, the endpoints, and how to call them. An agent reads it and then uses your service on its own, with no human help.",
+      "Phase 1 pull requests are listed on the NANDA Town hackathon page and on the projnanda/nandatown repository on GitHub. Phase 2 skills are listed on the NANDA Town skills page. Both links are in the Hackathon steps section above.",
   },
   {
     question: "What is NANDA Town?",
     answer:
-      "It's an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. In Phase 1 you improve one of those building blocks, so you learn how the town works before building your own service. Use the Explore NANDA Town button above to see it running.",
+      "It is an open-source sandbox where AI agents practice talking, trusting, paying, and coordinating across 12 building blocks. Participants improved one of those building blocks in Phase 1, and NANDA Town's registry hosted the Phase 2 skills. It is still running, and you can explore it any time.",
   },
   {
-    question: "Where do I submit?",
+    question: "What is a SKILL.md?",
     answer:
-      "Phase 1 is a pull request on the NANDA Town repo on GitHub. Phase 2 is submitted on the NANDA Town skills page: press Submit your skill above, then scroll down on that page to find the form. That page is the only place Phase 2 is submitted. Then complete the final Google form (with your video demo) before Saturday, July 11 at 2:00 PM ET.",
+      "It is a plain Markdown file that teaches an AI agent how to use a service: what it does, its web address, the endpoints, and how to call them. An agent reads it and then uses the service on its own, with no human help. Every Phase 2 entry was judged on its SKILL.md.",
   },
   {
-    question: "What are the fields on the Phase 2 submission form?",
+    question: "Can I still contribute to NANDA Town?",
     answer:
-      "Skill name: required. Your name or team: optional, but fill it in, since it shows on your registry card. Email: private, never shown on the site or public API. GitHub username: the bare handle, not a URL; this is how your registry entry is matched to your Phase 1 PR and registration. One line description: what the service does. Source type: a hosted link (URL to your .md), a GitHub repo (link to repo or file), or paste the file (the Markdown text). Your endpoints: one per line, method then the full live URL, for example GET https://your-app.onrender.com/weather?city={city} or POST https://your-app.onrender.com/alerts. These must be real, live URLs, because the registry checks them. Tags: comma separated, for example weather, api, demo. Then press Submit SkillMD.",
+      "Yes. The repository is open source and accepts pull requests outside the hackathon. The NandaHack Guide still works as a walkthrough for a first contribution, and the Discord is the place to ask questions.",
   },
   {
-    question: "Can I keep my SKILL.md private?",
+    question: "Will there be another NandaHack?",
     answer:
-      "Yes. The form gives you the option to make the SKILL.md file or link itself private if you would like. But the idea, description, and authorship should still be discoverable for collaboration purposes.",
+      "Announcements for future NANDA events go out on the Project NANDA Discord and the NANDA Luma calendar. Join either one to hear about what comes next.",
   },
   {
-    question: "How do I confirm my submission was recorded?",
+    question: "Where is the official recap?",
     answer:
-      'After a successful submit, the form shows "Saved." with your skill name and a "View its API record" link. Your card appears at the top of the list on the skills page, and the "Submitted so far" count goes up by one. To verify with curl: GET https://nandatown.projectnanda.org/api/skills returns a count and the list of skills. Find your entry, note its id, then GET https://nandatown.projectnanda.org/api/skills/<id> returns your full record. There is no confirmation email. If your entry is in that JSON, it is recorded.',
-  },
-  {
-    question: "How do I confirm a judge's agent can reach my service?",
-    answer:
-      'The registry checks your link and shows a badge on your card: green "link responded" or red "couldn\'t reach link." The check is not instant, so submit, then return to the skills page until your card reads "link responded." If it reads "couldn\'t reach link," your host is asleep or down: open your URL yourself to wake it, confirm it answers, then submit again. There is no edit button; resubmitting is the normal way to fix an entry. Keep your service up through Saturday, July 11: judging runs that morning from 9:30 AM to noon ET to pick the top 10, and if your service is down when the judge\'s agent calls, the agent fails.',
-  },
-  {
-    question: "Can I submit Phase 2 by API instead of the form?",
-    answer:
-      "Yes, optionally. POST JSON to https://nandatown.projectnanda.org/api/skills with a name, a source_type of url, github, or content, a source_url (or a content field for pasted Markdown), and your endpoints. The form is still preferred because it also records your GitHub username, which the API example does not.",
-  },
-  {
-    question: "Do I have to attend in person?",
-    answer:
-      "No. Attendance at the in-person event on Saturday, July 11 from 9:30 AM to 5:00 PM ET at MIT is not required: you can still fully participate and win by being fully virtual, as this is a fully global hackathon. If you do come, you are encouraged to use the time to finish up your Phase 2 submission; there will be a dedicated space to do that. RSVP on Luma is required to attend.",
-  },
-  {
-    question: "Who can join?",
-    answer:
-      "Anyone: students, builders, researchers, and professionals. You can enter on your own or as a team.",
+      "The MIT Media Lab published a recap post on August 4, 2026, with the numbers, the winners, and photos from the finale. Use the Read the MIT Media Lab recap button at the top of this page.",
   },
 ];
 
@@ -349,7 +340,7 @@ export default function Home() {
       <section className="hero grid-bg">
         <div className="hero-inner">
           <div className="hero-copy-wrap">
-            <p className="date-pill">SUBMIT BY FRI JULY 10, 12 PM ET · 100% VIRTUAL · OPTIONAL IN-PERSON FINALE · MIT MEDIA LAB</p>
+            <p className="date-pill">CONCLUDED · JUNE 13 TO JULY 11, 2026 · 100% VIRTUAL · IN-PERSON FINALE AT MIT MEDIA LAB</p>
             <h1>
               NandaHack:
               <br />
@@ -359,17 +350,18 @@ export default function Home() {
             </h1>
             <p className="hero-sponsors-inline">HCLTech · MIT Media Lab</p>
             <p className="hero-copy">
-              <strong>Join fully online from anywhere. You never have to be in person.</strong> Two
-              phases: first warm up on NANDA Town (Phase 1), then build a service and write a
-              SKILL.md for it (Phase 2). Initial submissions for both phases are due Friday, July
-              10, 2026 at 12:00 PM (noon) Eastern Time.
+              <strong>NandaHack has concluded.</strong> From June 13 through July 11, 2026, more
+              than 400 registrants warmed up on NANDA Town, then built services and wrote SKILL.md
+              files that stock AI agents could use on their own. The finale, with demos and awards,
+              took place at the MIT Media Lab on July 11. Thank you to HCLTech, the NANDA team, and
+              everyone who took part.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary btn-xl" href={REGISTER_FORM_URL}>
-                Register for the Hackathon
+              <a className="btn btn-primary btn-xl" href="#results">
+                See the winners
               </a>
-              <a className="btn btn-light btn-xl" href="#deadlines">
-                See the deadlines
+              <a className="btn btn-light btn-xl" href={RECAP_URL} target="_blank" rel="noopener noreferrer">
+                Read the MIT Media Lab recap
               </a>
             </div>
           </div>
@@ -387,40 +379,59 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="deadlines" className="section section-soft">
+      <section id="results" className="section section-soft">
         <div className="section-head">
-          <h2>Key deadlines</h2>
+          <h2>By the numbers</h2>
           <p className="section-subtitle">
-            All times are Eastern Time. Deadlines apply wherever you are building from. Do not wait
-            until the last minute: you are welcome to revise and resubmit as many times as you like
-            before each deadline.
+            Participants joined both online and in person. These are the totals the organizing team
+            reported after the July 11 finale.
           </p>
         </div>
-        <div className="intro-grid">
-          {deadlines.map((deadline) => (
-            <article key={deadline.title} className="info-card">
-              <p className="resource-kicker">{deadline.when}</p>
-              <h3>{deadline.title}</h3>
-              <p>{deadline.detail}</p>
-              {deadline.href && (
-                <a className="btn btn-primary" href={deadline.href} target="_blank" rel="noopener noreferrer">
-                  {deadline.cta}
-                </a>
-              )}
+        <div className="resource-grid">
+          {stats.map((stat) => (
+            <article key={stat.label} className="info-card stat-card">
+              <p className="stat-value">{stat.value}</p>
+              <h3>{stat.label}</h3>
+              <p>{stat.detail}</p>
             </article>
           ))}
+        </div>
+
+        <div className="section-head results-head">
+          <h2>Winners</h2>
+          <p className="section-subtitle">
+            The finale showcased projects across agent safety, civic services, autonomous newsrooms,
+            trust and reputation systems, negotiation, and skill verification. Congratulations to the
+            winning teams.
+          </p>
+        </div>
+        <div className="card-grid">
+          {winners.map((winner) => (
+            <article key={winner.place} className="info-card winner-card">
+              <p className="resource-kicker">{winner.place}</p>
+              <h3>{winner.title}</h3>
+              <p>{winner.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="top-ten">
+          <h3>Top 10 projects</h3>
+          <ul className="top-ten-list">
+            {topTen.map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section id="how" className="section">
         <div className="section-head">
-          <h2>Hackathon Steps</h2>
+          <h2>How the hackathon worked</h2>
           <p className="section-subtitle">
-            There are three places you interact with: one registration form, one pull request, and
-            one service submission. That is the whole flow, plus one final Google form to complete
-            before Saturday, July 11 at 2:00 PM ET. Register once with the form above, then do the
-            two phases in order: Phase 1 first, Phase 2 after. You submit each phase in the place
-            named on its card below.
+            Participants registered once, then completed two phases in order. Phase 1 was a pull
+            request on NANDA Town. Phase 2 was a hosted service with a SKILL.md, submitted on the
+            NANDA Town skills page. Both are still browsable.
           </p>
         </div>
 
@@ -440,7 +451,7 @@ export default function Home() {
 
                 <div className="step-cols">
                   <div className="step-block">
-                    <h4>What to do</h4>
+                    <h4>What participants did</h4>
                     <ol className="step-todo">
                       {step.todo.map((item) => (
                         <li key={item}>{item}</li>
@@ -448,7 +459,7 @@ export default function Home() {
                     </ol>
                   </div>
                   <aside className="step-scored">
-                    <h4>How it&apos;s scored</h4>
+                    <h4>How it was scored</h4>
                     <ul className="step-judged">
                       {step.judged.map((item) => (
                         <li key={item}>{item}</li>
@@ -497,8 +508,8 @@ export default function Home() {
         <div className="section-head">
           <h2>Resources &amp; quick links</h2>
           <p className="section-subtitle">
-            Everything you need to build, in one place: the live app, the step-by-step guide, the code,
-            the community, and every event.
+            Everything from the hackathon, still live: the app, the step-by-step guide, the code, the
+            community, and the event page.
           </p>
         </div>
 
@@ -529,7 +540,7 @@ export default function Home() {
                 <p className="resource-event-date">{event.date}</p>
               </div>
               <a className="btn btn-light" href={event.href} target="_blank" rel="noopener noreferrer">
-                RSVP on Luma
+                View on Luma
               </a>
             </div>
           ))}
@@ -540,17 +551,17 @@ export default function Home() {
         <div className="section-head">
           <h2>Stay connected</h2>
           <p className="section-subtitle">
-            Join the Discord for everything happening during the hackathon, and watch an info
-            session recording to get the full walkthrough before you submit.
+            The Discord stays open after the hackathon, and the info session recording is the full
+            walkthrough of the format if you want to see how it was run.
           </p>
         </div>
         <div className="intro-grid">
           <article className="info-card connect-card">
             <h3>Join the Discord</h3>
             <p>
-              All hackathon communication lives here: updates, announcements, team formation, and
-              technical questions. It&apos;s the place to get help and find teammates. If you have
-              any questions at all, ask them on the Project NANDA Discord.
+              All hackathon communication lived here, and it is still the place to reach
+              participants, mentors, and the Project NANDA team. Ask questions, share what you
+              built, and hear about future events.
             </p>
             <a className="btn btn-primary" href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
               Join the Discord
@@ -559,9 +570,9 @@ export default function Home() {
           <article className="info-card connect-card">
             <h3>Info session recording</h3>
             <p>
-              The last chance info sessions have finished. Watch a recording of one of the info
-              sessions for the full walkthrough of the format, deadlines, judging criteria, NANDA
-              Town, and SKILL.md before you submit.
+              Watch a recording of one of the info sessions for the full walkthrough of the
+              format, judging criteria, NANDA Town, and SKILL.md as they were presented to
+              participants.
             </p>
             <a className="btn btn-primary" href={INFO_SESSION_RECORDING_URL} target="_blank" rel="noopener noreferrer">
               Watch the recording
@@ -572,10 +583,10 @@ export default function Home() {
 
       <section id="mentors" className="section">
         <div className="section-head">
-          <h2>Meet your mentors</h2>
+          <h2>Mentors and organizers</h2>
           <p className="section-subtitle">
-            Guidance from the MIT Project NANDA team and HCLTech leaders in Responsible AI,
-            enterprise adoption, and secure AI architecture.
+            Participants had guidance from the MIT Project NANDA team and HCLTech leaders in
+            Responsible AI, enterprise adoption, and secure AI architecture.
           </p>
         </div>
         <div className="mentor-grid">
@@ -605,11 +616,10 @@ export default function Home() {
 
       <section id="judging" className="section section-soft">
         <div className="section-head">
-          <h2>How scoring works</h2>
+          <h2>How scoring worked</h2>
           <p className="section-subtitle">
-            The warm-up is worth 20%. The main event is worth 80%. You can enter one phase, but
-            doing both scores best. Never assume what the judges will or will not look at: be as
-            clear and specific as possible and leave absolutely no room for guesswork.
+            The warm-up was worth 20% and the main event 80%. Teams could enter one phase, but
+            doing both scored best. Judging ran on the morning of July 11 to pick the top 10.
           </p>
         </div>
         <div className="intro-grid">
@@ -625,14 +635,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="attend" className="section section-soft">
+      <section id="finale" className="section section-soft">
         <div className="section-head">
-          <h2>Join us on July 11</h2>
+          <h2>The finale at MIT</h2>
           <p className="section-subtitle">
-            Attendance in person is <strong>not</strong> required: you can fully participate and win
-            while fully virtual, since this is a fully global hackathon. If you can, come to MIT on
-            Saturday, July 11, 2026 from 9:30 AM to 5:00 PM ET to meet the key leaders behind NANDA
-            and finish up your Phase 2 submission on site.
+            The hackathon culminated on Saturday, July 11, 2026 at the MIT Media Lab. The morning
+            opened with the NANDA Summit, judging ran in parallel to pick the top 10, and the
+            afternoon closed with demos and awards. Virtual participants took part in full.
           </p>
         </div>
         <div className="card-grid">
@@ -641,22 +650,19 @@ export default function Home() {
             <p>9:30 AM to 1:00 PM ET · MIT Media Lab</p>
           </article>
           <article className="info-card">
-            <h3>Hackathon demos &amp; awards</h3>
-            <p>2:00 PM to 5:00 PM ET · MIT Media Lab</p>
+            <h3>Judging</h3>
+            <p>9:30 AM to 12:00 PM ET · A stock agent called every submitted service using only its SKILL.md</p>
           </article>
           <article className="info-card">
-            <h3>Phase 2 work space</h3>
-            <p>
-              A dedicated space to work on and finish up your Phase 2 submission before edits close
-              at 2:00 PM ET.
-            </p>
+            <h3>Demos &amp; awards</h3>
+            <p>2:00 PM to 5:00 PM ET · MIT Media Lab</p>
           </article>
         </div>
         <div className="attend-foot">
-          <a className="btn btn-primary" href={LUMA_URL} target="_blank" rel="noopener noreferrer">
-            RSVP on Luma
+          <a className="btn btn-primary" href={RECAP_URL} target="_blank" rel="noopener noreferrer">
+            Read the MIT Media Lab recap
           </a>
-          <span className="attend-note">RSVP is required and registration requires host approval</span>
+          <span className="attend-note">Published August 4, 2026 by the MIT Media Lab</span>
         </div>
       </section>
 

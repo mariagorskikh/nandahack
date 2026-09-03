@@ -10,6 +10,13 @@ export default function SiteFooter() {
         <a href="/about">About</a>
         <a href="/#resources">Resources</a>
         <a href="/#faq">FAQ</a>
+        <a
+          href="https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Recap
+        </a>
         <a href="https://nandatown.projectnanda.org" target="_blank" rel="noopener noreferrer">
           NANDA Town
         </a>
